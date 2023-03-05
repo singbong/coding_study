@@ -38,5 +38,5 @@ FALSE + FALSE + TRUE
 100
 45.1e-02
 
-
+df= read.csv('./R_studio_Basic/dataset/bike.csv')
 
