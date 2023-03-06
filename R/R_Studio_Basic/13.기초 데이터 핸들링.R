@@ -22,7 +22,7 @@ df_1$"new_col" = df_1$aa * df_1$bb
 df_1
 df_1 = df_1[,-grep(pattern = 'new_col', colnames(df_1))] # new_col col삭제
 df_1
-df_1[,5] = 555 # R은 기본적으로 변수명이 숫자로 시작하는 것을 허용하지 않음.
+df_1[,5] = 555 # R은 기본적으로 rowname의 변수명이 숫자로 시작하는 것을 허용하지 않음.
 
 #03 시간데이터 핸들링
 

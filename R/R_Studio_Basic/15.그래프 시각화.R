@@ -51,8 +51,7 @@ plot(df[1:200,'TA'],type= 'l')
 
 a= df[1:200,]
 a
-
-ggplot(data= a,aes(x= 1:200, y= TA)) + geom_line()
+ggplot(data= a,aes(x= 1:200, y= TA )) + geom_line()
 
 
 

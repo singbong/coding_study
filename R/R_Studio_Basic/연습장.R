@@ -73,47 +73,31 @@ df
 #as.PSIXct(), as.Date, months, weekdays, ymd(), ymd_h(), strptime(), year, month, wday(), hour(), order(), aggregate()
 
 
-as.POSIXct('2023-03-02 15:00:00')
-as.Date('2022-03-02')
-
-months(as.Date('2022-02-03'), abbreviate = TRUE)
-as.Date(500, origin = '2023-03-02')
-
-df = data.frame(obs= 1:4, passed= c(10,15,20, 30))
-df
-df$"origin" = as.Date(df$passed,
-                      origin = '2022-03-02')
-df
-df= df[,-grep(pattern = 'origin', colnames(df))]
-df
-weekdays(as.Date('2023-03-02'))
-weekdays(as.Date('2023-03-5'), abbreviate = TRUE)
-library('lubridate')
-ymd(20230302)
-ymd(20230302)
-ymd_h('20230302 13')
-
-strptime('2023-05-06 16+12+13', format='%Y-%m-%d %H+%M+%s' )
-year('2022-02-05')
-
 #order(), aggregate() apply(), ifelse(), table()
 
 
 
-df_date = data.frame(obs= 1:4, 
-                     passed= 4:7)
-df_date$"passed_date" = as.Date(df_date$passed, origin = '2023-03-02')
-df_date
-
-df_date$'wday'= weekdays(df_date$passed_date)
-df_date
-df_date= df_date[order(df_date$passed), ] #오름 차순
-df_date
-df_date= df_date[order(df_date$wday, decreasing = TRUE),]
-df_date
 
 
-df_3= read.csv('./dataset/bike.csv')
-head(df_3)
-df_4= aggregate(data= df_3, registered ~ humidity, FUN = 'mean' )
-df_4[grep(pattern = max(df_4$registered), df_4$registered),]
+#문제1 기본그래프를 사용하여 AWS_sample.txt 파일의 첫 200개 행의 데이터만 사용하여 TA변수를 대상으로 plot()함수로
+#선그래프 그리시오
+getwd()
+df= read.csv('./R/R_Studio_Basic/dataset/AWS_sample.txt', sep= '#')
+head(df)
+df_TA = df$TA[1:200]
+df_TA
+
+plot(x= 1:200, df_TA, type = 'l')
+
+
+
+#문제2 기본그래프를 사용하여 AWS_sample.txt 파일의 첫 200개 행의 데이터만 사용하여 TA변수를 대상으로 ggplot()함수로
+#선그래프 그리시오
+library('ggplot2')
+ggplot(data= df[1:200,], aes(x= 1:200, y= TA)) + geom_line()
+
+
+
+
+
+
