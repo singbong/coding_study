@@ -1,13 +1,12 @@
-
-def solution(array, commands):
+def solution(numbers):
     answer = []
-    
-    for i in commands:
-        print(array[i[0]-1:(i[1])])
-        answer.append(sorted(array[i[0]-1:(i[1])])[i[2]-1]) 
-        
+    for v in range(0,len(numbers)):
+        for i in range(v+1, len(numbers)):
+            if numbers[v]+numbers[i] not in answer:
+                answer.append(numbers[v]+numbers[i])
+            else:
+                continue
+    answer.sort()
     return answer
 
-print(solution([1, 5, 2, 6, 3, 7, 4], [[4, 4, 1]]))
-
-
+print(solution([2,1,3,4,1]))
