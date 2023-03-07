@@ -1,9 +1,5 @@
-from datetime import datetime
+a= dict(a='a', b='b')
 
-def solution(a, b):
-    date_string = "2016{}{}".format(a, b)
-    date_format = "%Y%m%d"
-    date_time = datetime.strptime(date_string, date_format)
-    result = date_time.weekday()
-    day = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
-    return day[result].upper()
+print(list(a.keys()))
+b= list(range(1,5))
+print(b)
