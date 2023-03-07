@@ -1,12 +1,9 @@
-def solution(numbers):
-    answer = []
-    for v in range(0,len(numbers)):
-        for i in range(v+1, len(numbers)):
-            if numbers[v]+numbers[i] not in answer:
-                answer.append(numbers[v]+numbers[i])
-            else:
-                continue
-    answer.sort()
-    return answer
+from datetime import datetime
 
-print(solution([2,1,3,4,1]))
+def solution(a, b):
+    date_string = "2016{}{}".format(a, b)
+    date_format = "%Y%m%d"
+    date_time = datetime.strptime(date_string, date_format)
+    result = date_time.weekday()
+    day = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+    return day[result].upper()
