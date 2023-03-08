@@ -46,3 +46,60 @@ def solution(number):
 print(bin(22)[2:])
 print(bin(12)[2:])
 print(bin(22 | 12)[2:]) # 시벌 몰라서 노가다했네
+
+
+
+#아리스토텔레스 체 문제: 소수찾기 코드
+def solution(n):
+    num=set(range(2,n+1)) #리스트 빼기 리스트는 안되지만 집합 빼지 집합 즉, 차집합이라느 개념이 있기에 굉장히 효율적인 코드
+
+    for i in range(2,n+1):
+        if i in num:
+            num-=set(range(2*i,n+1,i))
+    return len(num)
+
+def solution(n):
+    num= set(range(2, n+1))
+    for i in range(2, n+1):
+        if i in num:
+            num= num - set(range(2*i, n+1, i))
+    return len(num)
+
+#위 함수와 아래 함수가 왜 다른건지 도저히 이해가 안갔으니 num-=1 이런식은 num을 업데이트 하는 방식이고 num num-1은 num을 재할당 하는 것이라
+# 속도 면에서 차이가 난다고 한다.......... 
+
+"""
+num -= set(range(2*i, n+1, i))은 num을 업데이트 하는 것이고, num = num - set(range(2*i, n+1, i))은  
+새로운 set 객체를 만들어 num을 재할당하는 것입니다. 
+"""
+
+# ex)  [1, 2, 3, 4, 5] 문제 모의고사 코드
+def solution(answers):
+    patterns = [
+        [1, 2, 3, 4, 5],
+        [2, 1, 2, 3, 2, 4, 2, 5],
+        [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+    ]
+    scores = [0, 0, 0]
+    for i, ans in enumerate(answers):
+        for j, pattern in enumerate(patterns):
+            if ans == pattern[i % len(pattern)]:
+                scores[j] += 1
+    max_score = max(scores)
+    return [i+1 for i, score in enumerate(scores) if score == max_score]
+
+from itertools import cycle
+
+def solution(answers):
+    patterns = [
+        cycle([1, 2, 3, 4, 5]),
+        cycle([2, 1, 2, 3, 2, 4, 2, 5]),
+        cycle([3, 3, 1, 1, 2, 2, 4, 4, 5, 5])
+    ]
+    scores = [0, 0, 0]
+    for i, ans in enumerate(answers):
+        for j, pattern in enumerate(patterns):
+            if ans == next(pattern):
+                scores[j] += 1
+    max_score = max(scores)
+    return [i+1 for i, score in enumerate(scores) if score == max_score]

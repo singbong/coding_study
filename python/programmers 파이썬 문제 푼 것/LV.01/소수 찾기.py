@@ -20,34 +20,34 @@ n	result
 1부터 5 사이의 소수는 [2,3,5] 3개가 존재하므로 3를 반환
 """
 def solution(n):
-    if n ==2:
-        return 1
-    else:
-        sosu = [2] #2 3 
-        numbers = list(range(3,n+1)) # 5 6 7 8 9 10
-        for i in numbers:
-            count = 0
-            for k in range(0,len(sosu)):
-                if i % sosu[k] != 0 and count == 0 and k == len(sosu)-1:
-                    sosu.append(i)
-                elif i % k == 0:
-                    count = count + 1
-        
-    print(sosu)
-    return len(sosu)
+    num= set(range(2, n+1))
+    for i in range(2, n+1):
+        if i in num:
+            num= num - set(range(2*i, n+1, i))
+    return len(num)
+
+
 
 print(solution(10))
 # 시간이 너무 오래 걸리므로 에라토스테네스의 체라는 방법을 써야한다.
 """
-에라토스테네스의 체는 소수를 찾는 알고리즘 중 하나입니다. 구체적으로는 2부터 N까지의 자연수 중에서 
-소수를 찾는 방법으로, 다음과 같은 단계를 거칩니다.
-
-2부터 N까지의 자연수를 모두 나열한다.
-아직 지워지지 않은 수 중에서 가장 작은 수를 찾는다. 이 수는 소수이다.
-이제 이 소수의 배수들을 모두 지운다.
-아직 지워지지 않은 수가 있으면 2번으로 돌아가서 반복한다.
-이렇게 하면 2부터 N까지의 모든 소수를 찾을 수 있습니다. 이 알고리즘은 대략 Nlog(log N)의 시간 복잡도를 갖습니다.
+에라토스테네스의 체는 소수를 찾는 알고리즘 중 하나입니다. 5라는 숫자가 있으면 2부터 int(5**0.5) 까지 숫자가 5라는 숫자를 나누었을 때 나누어
+떨어지면 5라는 숫자는 소수가 아니고 안나누어 떨어지면 소수이다. 
 """
+def solution(n):
+    answer = 0
+    numbers = list(range(2,n+1)) # 2 3 4 5
+    for i in numbers:
+        is_prime = True
+        for j in range(2, int(i ** 0.5) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            answer += 1
+    return answer
+
+
 
 
 
