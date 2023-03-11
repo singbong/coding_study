@@ -1,2 +1,1 @@
-a= [1, 2, 3, 1, 2, 3, 1]
-print(min(a))
+print( [i for i in range(1,20)])
