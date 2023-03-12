@@ -37,7 +37,7 @@ def solution(dartResult):
         print(dar)
         if v in data.get('num'):
           if v == '0':
-            if dartResult[i-1] == '1':
+            if dartResult[i-1] == '1': #숫자가 10또는 0이 나왔을 때 예외처리리
               dar[len(dar)-1]*=10
             else:
                dar.append(int(v))
@@ -52,7 +52,7 @@ def solution(dartResult):
               dar[len(dar)-1]**=3
         if v in data.get('event'):
           if v == '*':
-              if len(dar)>=2:
+              if len(dar)>=2:    #*이 나왔지만 앞에 2개의 데이터가 아닌 1개의 데이터만 있을때 예외처리
                 dar[len(dar)-2]*=2
               dar[len(dar)-1]*=2
           if v == '#':
