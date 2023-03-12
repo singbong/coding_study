@@ -1,7 +1,10 @@
-data= dict(num=[1,2,3,4,5,6,7,8,9,0],
-               jisu=['S','D','T'],
-               event=['*','#'])
+ar= [1,2,3,4,5]
+try:
+    ar[2] = 10
+        
+except Exception:
+    print('에러 발생')
+else:
+    ar.append('엥')
 
-dar= [-1,2,3,4,5]
-dar[0]*=3
-print(dar[0] == True)
+print(ar)

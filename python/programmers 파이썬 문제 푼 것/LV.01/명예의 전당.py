@@ -24,4 +24,15 @@ k	                 score	                                             result
 
 def solution(k, score):
     answer = []
+    honor= list()
+    for i in score:
+        try:
+            if honor[k-1] < i:  #for문의 마지막에서 내림차순으로 리스트를 정렬하기 때문에 k-1은 honor에서 가장 작은 수이기때문에 해당 코드작성
+                honor[k-1] = i
+        except Exception:       #honor의 길이가 k-1보다 작을 경우 인덱스 에러가 남으로 에러가 났을때 예외사항 처리
+            honor.append(i)
+        honor.sort(reverse=True)
+        answer.append(min(honor))
     return answer
+
+print(solution(3, [10, 100, 20, 150, 1, 100, 200]))
