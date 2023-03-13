@@ -1,10 +1,7 @@
-ar= [1,2,3,4,5]
-try:
-    ar[2] = 10
-        
-except Exception:
-    print('에러 발생')
-else:
-    ar.append('엥')
+i= 39.5
+while i < 94:
+    i+=7.5
+    print(i)
+    
 
-print(ar)
+    
