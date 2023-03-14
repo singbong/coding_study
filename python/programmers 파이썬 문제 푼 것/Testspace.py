@@ -1,7 +1,6 @@
-i= 39.5
-while i < 94:
-    i+=7.5
-    print(i)
-    
+a=[1,2,3,4,5]
+a.sort()
+
+print(a)
 
     
