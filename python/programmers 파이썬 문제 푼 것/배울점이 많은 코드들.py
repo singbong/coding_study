@@ -103,3 +103,6 @@ def solution(answers):
                 scores[j] += 1
     max_score = max(scores)
     return [i+1 for i, score in enumerate(scores) if score == max_score]
+
+#리스트 집합 딕셔너리 가변형데이터 이므로 call by reference 가능
+#문자열 튜플은 불변형데이터 형식 call by value

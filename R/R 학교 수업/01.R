@@ -53,6 +53,23 @@ table(df3$Species)
 colSums(df3[,-5])
 colMeans(df3[,-5])
 
+df1= read.csv('./R/R_Studio_Basic/dataset/bike.csv')
+head(df1)
+head(iris)
+df2= subset(iris, Species=='setosa' | Species=='virginica')
+df2
+
+df3= iris[grep(pattern = 'setosa',iris$Species),]
+
+df3$'평균'=apply(df3[,-5],1,FUN='mean')
+df3
+
+
+
+
+
+
+
 
 
 
