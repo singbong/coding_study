@@ -27,4 +27,4 @@ def solution(participant, completion):
     return participant[-1]
 
 
-print(solution(["mislav", "stanko", "mislav", "ana"],["stanko", "ana", "mislav"]))
+print(solution(['a','b','c'],['a','b']))

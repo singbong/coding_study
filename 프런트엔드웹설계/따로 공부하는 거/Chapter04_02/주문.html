@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>레드향 주문하기</title>
+</head>
+<body>
+  <h1>레드향 주문하기</h1>
+  <form>
+    <fieldset>
+        <legend>상품주문</legend>
+        <p><b>주문할 상품을 선택해 주세요</b>></p>
+        <ul>
+            <li>
+                <label><input type="checkbox" value="p_1">상품 1kg</label>
+                <input type="number" min="0" max="5" value="1">(최대 5개)
+            </li>
+            <li>
+                <label><input type="checkbox" value="p_3">상품 3kg</label>
+                <input type="number" min="0" max="5" value="1">(최대 5개)  
+            </li>
+            <p><b>포장 유무</b></p>
+            <ul>
+                <li>
+                    <label><input type="radio" name="포장" value="yes">포장 한다</label>
+                </li>
+                <li>
+                    <label><input type="radio" name="포장" value="no">포장 안한다</label>
+                </li>
+            </ul>
+           
+        </ul>
+    </fieldset>
+  </form>
+  
