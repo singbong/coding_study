@@ -1,0 +1,159 @@
+---
+title: "데이터기반 프로그래밍(2)"
+author: "신봉균20191624"
+date: "2023-03-22"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+***
+## 01 조건문
+
+#### 코드 4-3
+
+```{r code4-3, echo=TRUE}
+score = 85
+if(score>90){
+  grade = 'A'
+} else if (score >80) {
+  grade = 'B'
+} else if (score >70) {
+  grade = 'C'
+} else if (score >60) {
+  grade = 'D'
+} else if (score >50) {
+  grade = 'F'
+}
+print(grade)
+```
+***
+## 02 반복문
+
+#### 코드 4-8
+
+```{r code4-8, echo=TRUE}
+for (i in 1:9){
+  cat('2 *', i,'=',2*i,'\n')
+}
+```
+[코드 4-8]에서는 구구단을 출력하기 위해 **print()** 함수 대신에 **cat()** 함수를 사용하였다.
+**print()** 함수는 하나의 값을 출력할 때 사용하고,**cat()** 함수는 한 줄에 여러 개의 
+값을 결합하여 출력할 때 사용한다.
+
+#### 코드 4-11
+
+```{r code4-11, echo=TRUE}
+norow = nrow(iris)            #iris의 행의 수수
+mylabel = c()                 #비어있는 벡터 선언
+for(i in 1:norow){
+  if (iris$Petal.Length[i] <= 1.6){   #꽃잎의 길이에 따라 레이블 결정정
+    mylabel[i] = 'L'
+  } else if(iris$Petal.Length[i] >= 5.1){
+    mylabel[i]= 'H'
+  } else {
+    mylabel[i] = 'M'
+  }
+}
+print(mylabel)                                 #레이플 출력
+newds = data.frame(iris$Petal.Length, mylabel)  #꽃잎의 길이와 레이블 결합
+head(newds)                                     #새로운 데이터셋 내용 출력
+
+```
+[코드 4-11]의 for문을 보면 **iris$Petal.length**의 **i**번째 값에 따라 **mylabel**의 **i**번째 값
+이 **'L','H','M'** 중의 하나로 결정되는 것을 알 수 있다. **mylabel**은 처음에는 비어있는 벡터
+였는데 for문의 반복이 한 번 실행될 때마다 값들이 하나씩 추가되어 for문이 종료되면 150개의 레이블 값을 가지게 된다.
+
+#### 코드 4-14
+```{r code4-14, echo=TRUE}
+sum = 0
+for(i in 1:10){
+  if(i%%2==0)next
+  sum = sum + i
+}
+sum
+
+```
+[코드4-14] 역시 1~10까지의 합계를 구하는데 **i**가 짝수이면 **next**가 실핼되어 **sum <-sum+i**
+를 실행하지 않고 다음 반복으로 넘어간다. 따라서 최종 결과에는 홀수들의 합계가 저장이된다.
+***
+
+## 03 apply() 함수
+
+#### 코드 4-15
+```{r code4-15, echo=TRUE}
+apply(iris[,1:4], 1, FUN = mean) #row 방향으로 함수 작용
+
+```
+**apply(iris[,1:4], 1, FUN = mean)** 명령문은 iris 데이터셋에서 행 방향으로 진행을 하면서 각
+행의 평균(mean)을 계산하여 출력한다. **iris** 데이터셋에서 150개의 행이 있기 떄문에 이 명령
+문의 실행 결과는 150개 행에 대한 행별 평균값이다.
+```{r code4-15-2, echo=TRUE}
+apply(iris[,1:4], 2, FUN = mean) #col 방향으로 함수 작용
+
+```
+**apply(iris[,1:4], 2, FUN = mean)** 명령문은 **iris** 데이터셋에서 열 방향으로 진행을 하면서 각
+열의 평균(mean)을 계산하여 출력한다. 그 결과 4개의 열에 대한 평균이 출력된 것을 확일할 수 있다.
+**apply** 함수와 유사한 함수로 **lapply(), sapply(), tapply(), mapply()** 함수 등이 있
+는데 **apply()** 함수를 이해하면 나머지 함수들도 쉽게 사용할 수 있다.
+
+***
+## 04 사용자 정의 함수
+#### 코드 4-19
+```{r code4-19, echo=TRUE}
+myfunc = function(x,y){
+  val.sum = x+y
+  val.mul = x*y
+  return(list(sum=val.sum, mul=val.mul))
+}
+result= myfunc(5,8)
+s= result$sum
+m= result$mul
+cat('5+8=',s, '\n')   #5,8의 합
+cat('5*8=',m,'\n')    #5,8의 곱
+
+```
+#### 코드 4-20
+```{r code 4-20, echo=TRUE}
+setwd("C:/Users/Sin/Desktop/coding_study/R/R 학교 수업/") # myfunc.R이 저장된 폴더
+source('myfunc.R')                                        # myfunc.R 안에 있는 함수 실행
+
+#함수 사용
+a= mydiv(20,4)                                          #함수 호출
+b = mydiv(30,4)                                         #함수 호출
+a+b
+mydiv(mydiv(20,2),5)                                    #함수 호출
+
+
+```
+**mydiv()** 함수를 호출하기 위해서는 먼저 파일에 있는 **mydiv()** 함수를 실행해야 하는데 그 
+명령어가 **source("myfunc.R")**이다. 이 명령문의 의미는 **myfunc.R** 파일에 저장되어 있는
+함수나 명령문들을 실행하라는 것이다. **setwd("C:/Users/Sin/Desktop/coding_study/R/R 학교 수업/")**는 **myfunc.R** 파일이 위치하는 폴더를 작업 폴더로 지정한다. **source("myfunc.R")**를 실행하면 **mydiv()** 함수를 사용할 준
+비가 되는 것이므로 이후에는 필요하 곳에서 호출하여 사용하면 된다.
+  
+***
+## 05 조건에 맞는 데이터의 위치 찾기
+
+#### 코드 4-23
+```{r code4-23, echo=TRUE}
+idx = which(iris$Petal.Length>5.0)               #꽃잎의 길이가 5.0 이상인 값들의 인덱스
+idx
+iris.big = iris[idx,]                            #인덱스에 해당하는 값만 추출하여 저장
+iris.big
+
+```
+**which()**함수를 이용하여 매트릭스, 데이터프레임 안에 있는 특정 값의 행과 열의 위치를 알
+고 싶으면 [코드 4-24]와 같이 **arr.ind = TRUE** 매개변수를 추가한다.
+
+
+#### 코드 4-24
+```{r code4-24, echo=TRUE}
+#1~4열의 값 중 5보다 큰 값의 행과 열의 위치
+idx = which(iris[,1:4]>5.0, arr.ind = TRUE)
+head(idx, 20)                             #데이터가 너무 많아 20개만 출력시킨다.
+
+```
+

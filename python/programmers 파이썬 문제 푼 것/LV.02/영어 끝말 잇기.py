@@ -44,18 +44,18 @@ n	  words	                                                                      
 # 중복이 됐는지 안됐는지 확인을 위한 한개의 리스트 작성 
 import math
 
-
 def solution(n, words):
     answer= []
-    for i in range(0,len(words)-1):
-        if words[i][-1] != words[i+1][0]:
-            if (i+2)%n == 0 :
-                answer.append(n)
-            if (i+2)%n != 0:
-                answer.append((i+2)%n)
-            answer.append(math.ceil((i+2)/n))
-
-
+    word_dup = [] # 중복된 단어를 체크하기 위한 리스트
+    for i in range(len(words)):
+        if words[i] in word_dup or (i > 0 and words[i-1][-1] != words[i][0]):
+            # 이전에 등장했던 단어거나, 이전 단어의 마지막 글자와 현재 단어의 첫 글자가 다를 경우
+            answer.append((i%n) + 1) # 현재 차례를 구하고 answer에 추가
+            answer.append(math.ceil((i+1)/n)) # 현재 차례에서 몇 번째인지 구하고 answer에 추가
+            break
+        word_dup.append(words[i]) # 현재 단어를 word_dup에 추가
+    else:
+        answer = [0, 0] # 끝말잇기가 무사히 끝난 경우
     return answer
 
-print(solution(2, ["hello", "one", "even", "never", "now", "world", "draw"]))
+print(solution(3, ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]))

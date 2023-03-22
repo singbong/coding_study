@@ -1,3 +1,5 @@
 import math
 
-print(math.ceil(4.1))
+for i in numbers:
+    for j in range(2, int(i ** 0.5) + 1):
+
