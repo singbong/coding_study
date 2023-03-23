@@ -1,5 +1,7 @@
-import math
+a= [1,2,3,4,5]
 
-for i in numbers:
-    for j in range(2, int(i ** 0.5) + 1):
+a.sort(reverse=1)
+
+print(a)
+
 
