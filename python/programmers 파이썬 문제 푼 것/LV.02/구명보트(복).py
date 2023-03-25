@@ -22,24 +22,23 @@
 people	                 limit	  return
 [70, 50, 80, 50]	     100	     3
 [70, 80, 50]	         100	     3
-[150, 120, 100, 80, 70]  200         4 
+[150, 120, 100, 80, 70]  200         3 
 """
-# 일단 이중 for문을 사용해서 리미트를 넘지 않는 조건을 걸고 그 중에서 최댓 값은 out 시킨다.
 
 
 def solution(people, limit):
-    answer = 0
-    people.sort(reverse=1)
-    escape= list()
-    for i in range(0, len(people)-1):
-        for v in range(i+1, len(people)):
-            if people[i] + people[v] <= limit and people[i] + people[v] > sum:
-                
-                sum= people[i] + people[v]
-                answer+=1
-    answer+= len(people) - len(escape)
-
-
+    people.sort()
+    answer= 0
+    a= 0
+    b= len(people)-1
+    while a <= b:
+        if people[a] + people[b] <= limit:
+            a+=1
+        answer+=1
+        b-=1
     return answer
 
-print(solution([150, 120, 100, 80, 70], 200))
+
+    
+
+print(solution([70, 80, 50], 100))
