@@ -1,7 +1,5 @@
+start= (1,1)
 
+start= (start[0]+1,start[-1]+1)
 
-c= [(2,1), (3,3), (4,2)]
-c.sort(key=lambda x:x[-1])
-
-print(c)
-
+print(start)

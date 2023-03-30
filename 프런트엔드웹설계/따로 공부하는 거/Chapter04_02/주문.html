@@ -6,10 +6,10 @@
 </head>
 <body>
   <h1>레드향 주문하기</h1>
-  <form>
+  <form action="" autocomplete="off"> 
     <fieldset>
         <legend>상품주문</legend>
-        <p><b>주문할 상품을 선택해 주세요</b>></p>
+        <p><b>주문할 상품을 선택해 주세요</b></p>
         <ul>
             <li>
                 <label><input type="checkbox" value="p_1">상품 1kg</label>
@@ -22,7 +22,7 @@
             <p><b>포장 유무</b></p>
             <ul>
                 <li>
-                    <label><input type="radio" name="포장" value="yes">포장 한다</label>
+                    <label><input type="ra dio" name="포장" value="yes">포장 한다</label>
                 </li>
                 <li>
                     <label><input type="radio" name="포장" value="no">포장 안한다</label>
@@ -30,6 +30,9 @@
             </ul>
            
         </ul>
+    </fieldset>
+    <fieldset>
+        <legend>배송정보</legend>
     </fieldset>
   </form>
   

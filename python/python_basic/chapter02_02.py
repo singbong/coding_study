@@ -79,6 +79,7 @@ student_grade=3 #스네이크 케이스
 
 StudentGrade=3 #파스칼 케이스 (이것을 변수로 선언 하는 것은 좋은 방법이 아니다 하지말자)
 
+
 studentGrade=3 #카멜 케이스
 
 #허용 하는 변수 선언 법

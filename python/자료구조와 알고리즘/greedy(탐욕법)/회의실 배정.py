@@ -14,7 +14,20 @@ N = int(input())
 time= list()
 for i in range(0,N):
     time.append(tuple(map(int, input().split())))
-time.sort(key=lambda x:x[-1])
+time.sort(key=lambda x:(x[-1],x[0]))
+answer= [time[0]]
+
+for i in range(1,len(time)):
+    if answer[-1][-1] <= time[i][0]:
+        answer.append(time[i])
+
+print(len(answer))
 
 
+    
+
+    
+     
+
+ 
 
