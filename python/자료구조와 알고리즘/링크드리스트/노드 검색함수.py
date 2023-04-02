@@ -1,7 +1,7 @@
 ##전역 변수##
 pre, head, current= None, None, None
 memory= []
-data_array= ['시','발','람','아']
+data_array= ['가','나','다','라']
 
 ##노드 생성함수##
 
