@@ -1,93 +1,55 @@
-##전역 변수##
-pre, head, current= None, None, None
-memory= []
-data_array= ['시','발','람','아']
-
-##노드 생성함수##
-
-class node():
-    def __init__(self):
+## 클래스와 함수 선언 부분 ##
+class Node():
+    def __init__ (self):
         self.data= None
         self.link= None
-
-##노드 출력 함수##
+        
 def printNodes(start):
-    current = head
+    current= start
     if current == None:
         return
-    
-    print(current.data, end=' ')
+    print(current.data, end= ' ')
     while current.link != None:
-        current=current.link
+        current= current.link
         print(current.data, end=' ')
     print()
-
-##노드 삽입 함수##
-def insertData(find_data, insert_data):
-    global pre, current, memory, head
-
-    if head.data == find_data: #찾는 노드가 head에 있을때
-        first=node()
-        first.data= insert_data
-        first.link=head
-        first=head
-        memory.append(first)
+    
+    
+def makeSimpleLinkedList(namePhone):
+    global memory, head, current, pre
+    printNodes(head)
+    
+    node=Node()
+    node.data = namePhone
+    memory.append(node)
+    if head == None:   #첫번째 노드일때
+        head = node
+        return
+    if head.data[1] > namePhone[1]: #첫번째 보다 노드보다 작을때
+        node.link = head
+        head = node
         return
     
-    current= head
-    while current.link != None: #찾는 노드가 중간에 있을때
-        pre= current
-        current=current.link
-        if current.data == find_data:
-            first= node()
-            first.data= insert_data
-            first.link= pre.link
-            pre.link= first
-            memory.append(first)
-            return
-    
-    #위에 코드를 모드 실행했는데 찾고자 하는 노드를 못찾았다면 존재하지 않기에 마지막에 추가
-    first= node()
-    first.data= insert_data
-    current.link= first
-    memory.append(first)
-    return
-
-##검색 함수##
-
-def findData(find_data):
-    global memory, pre, head, current
-
+    #중간 노드로 삽입하는 경우
     current = head
-    if current.data == find_data:
-        return current
-    
     while current.link != None:
-        current=current.link
-        if current.data == find_data:
-            return current
-        
-    return node()
+        pre = current
+        current = current.link
+        if current.data[1] > namePhone[1]:
+            pre.link = node
+            node.link = current
+            return
+    #삽입하는 노드가 가장 큰 경우
+    current.link = node
+    
+## 전역 변수 선언 부분##
+memory= []
+head, current, pre = None, None, None
+dataArray = [['지민',180],['정국',177],['뷔',183],['슈가',175],['진',179]]
 
-
-
-
-
-
-##메인함수##
+##메인 코드 부분##
 if __name__ == '__main__':
-    first= node()
-    first.data= data_array[0]
-    memory.append(first)
-    head= first
-
-    for i in data_array[1:]:
-        pre= first
-        first= node()
-        first.data= i
-        pre.link= first
-        memory.append(first)
-    printNodes(head)
-
-    insertData('람','헐')
+    
+    for data in dataArray:
+        makeSimpleLinkedList(data)
     printNodes(head)
