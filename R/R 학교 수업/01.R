@@ -1,3 +1,3 @@
-df= iris
-head(df)
-which(iris$Species == 'setosa')
+install.packages('mlbench')
+a= as.numeric('314.5')
+a

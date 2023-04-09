@@ -11,4 +11,4 @@ for i in S[1:]:
         sum+=int(i)
     else:
         sum*=int(i)
-print(sum)
+print(sum) #한글로 알려줘
