@@ -1,0 +1,321 @@
+---
+title: "Chapter07 데이터 전처리"
+author: "신봉균20191624"
+date: "2023-04-12"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 코드 7-1
+
+```{r}
+z= c(1,2,3,NA,5,NA,8) #결측값이 포함된 벡턴 z
+sum(z)                #정상계산이 안됌
+is.na(z)              #NA여부 확인
+sum(is.na(z))         #NA의 개수 확인
+sum(z, na.rm=TRUE)    #NA를 제외하고 합계를 계산산
+```
+(1)**sum(z)**는 **z**안의 결측 값이 존재하기 때문에 결과가 **NA**로 나온다.
+(2)**is.na(z)**는 **z**에 결측값이 아닌 것은 **FALSE**로 결측 값인 것은 **TRUE**로 변환하여 보여준다.
+(3)**sum(is.na(z))**는 **is.na(z)**에 **FALSE**는 **0**으로 취급하고 **TRUE**는 **1**로 취급하기 때문에 **is.na(z)**를 다 더한 값은 결측 값의 갯수를 의미한다.
+(4)**sum(z, na.rm=TRUE)**에서 **na.rm()**함수는 매개변수 안에 결측 값을 제거해주는 역할을 한다 **rm**은 remove를 뜻한다.
+
+## 코드 7-2
+
+```{r}
+z1= c(1,2,3,NA,5,NA,8) #결측값이 포함된 벡터 z1
+z2= c(5,8,1,NA,3,NA,7) #결측값이 포함된 벡터 z2
+z1[is.na(z1)]          #NA를 0으로 치환
+z1
+z3= as.vector(na.omit(z2)) #NA를 제거하고 새로운 벡터 생성
+z3
+```
+
+(1) **z1[is.na(z1)] **는 결측 값인 NA를 0으로 변환해준다
+(2) **z3= as.vector(na.omit(z2))** NA를 제거한 벡터를 z3라는 변수에 할당시킨다.
+
+## 코드 7-3
+
+```{r}
+x= iris
+x[1,2] = NA; x[1,3]= NA
+x[2,3]= NA; x[3,4]= NA
+head(x)
+```
+
+(1) **x**에 R에 기본적으로 내장되어 있는 데이터 **iris**를 저장시킨다.
+(2) x의 1행 2열에 있는 데이터를 NA로 대체, x의 1행 3열을 NA로 대체, 2행 3열, 3행 4열을 NA로 대체
+(3) x를 6개의 row만 출력
+
+
+## 코드 7-4
+
+```{r}
+#for문을 이용한 방법
+ 
+
+#apply를 활용한 방법
+
+col_na <- function(y) {
+  return(sum(is.na(y)))
+}
+
+na_count = apply(x,2,FUN=col_na)
+na_count
+```
+
+(1)**for (i in 1:ncol(x))** : 데이터프레임 x의 열 개수만큼 반복합니다.
+(2)**this.na = is.na(x[,i])** : **x[,i]**는 i번째 열 모든 행을 의미. is.na() 함수를 사용하여 해당 열의 값 중 NA 값인 부분을 TRUE, 그렇지 않은 부분을 FALSE로 구분하여 this.na 변수에 할당
+(3)**cat(colnames(x)[i], "\t", sum(this.na), '\n')** : colnames(x)[i]는 x의 i번째 열의 이름을 의미한다. sum(this.na)는 해당 열에서 NA 값의 개수를 의미한다. **cat()** 함수를 사용하여 열 이름, tab 문자(\t), NA 값의 개수를 출력한다.
+
+(4)**col_na**는 결측 값의 갯수를 계한해주는 함수
+(5) **apply(x,2,FUN=col_na)**는 data는 iris 데이터가 저장되어있는 x의 각 열에 **col_na** 함수 적용
+
+## 코드 7-5
+```{r}
+rowSums(is.na(x))        #행별 NA개수
+sum(rowSums(is.na(x))>0) #NA에 포함된 행의 개수
+
+sum(is.na(x))           #데이터셋 전체에서 NA개수
+```
+
+(1)행별 NA개수를 계산한다.
+(2) NA값을 가진 행들의 개수
+(3) x 행열에 전체 NA의 갯수
+
+## 코드 7-6
+
+```{r}
+head(x)
+x[!complete.cases(x),] #NA가 포함된 행들 출력
+y= x[complete.cases(x),]  #NA가 포함된 행들 제거
+head(y)
+```
+
+(1) x의 6개 행만 출력
+(2) NA가 포함된 행들을 출력
+(3) NA가 포함된 포함된 행을 제거한 데이터셋을 y변수에 할당
+(4) Y데이터셋 6개 행 출력
+
+## 코드 7-7
+```{r}
+st= data.frame(state.x77)
+boxplot(st$Income)
+boxplot.stats(st$Income)$out
+```
+
+(1) st변수에 state.x77 데이터셋을 저장
+(2) st 데이터셋에 Income 열 데이터를 가지고 boxplot 작성
+(3) **boxplot.stats()**함수는 리스트 형태로 여러 개의 결과값을 봔하는데 그중에서 out은 특이값을 의미한다. 그러므로 st데이터셋의 Income 열에 대한 데이터의 특이 값들을 추출한다.
+
+## 코드 7-8
+```{r}
+out.val = boxplot.stats(st$Income)$out #특이 값추출
+st$Income[st$Income %in% out.val] = NA #특이값을 NA로 대체
+head(st)                            
+newdata= st[complete.cases(st),] #st데이터셋에 NA값이 포함 안되어있는 행들을 newdata에 할당
+head(newdata)
+```
+
+(1)**out.val**에 특이 값들을 저장
+(2)**st$Income[st$Income %in% out.val]= NA** st데이터셋에 저장되어 있는 특이 값들을 NA로 대체해버린다
+(3)**newdata** st데이터셋에서 결측값에 포함된 행들을 제거한 데이터셋을 **newdata**에 할당한다.
+
+## 코드 7-9
+
+```{r}
+v1= c(1,7,6,8,4,2,3)
+order(v1)
+v1= sort(v1)                 #오름차순
+v1
+v2= sort(v1, decreasing = T) #내림차순
+v2
+```
+
+(1) **sort(v1)** 기본은 오름차순이 기본
+(2) **sort(v1, decreasing= T)** 내림차순 
+
+## 코드 7-10
+
+```{r}
+head(iris)
+order(iris$Sepal.Length)
+iris[order(iris$Sepal.Length),]                 #오름 차순으로 정렬
+iris[order(iris$Sepal.Length, decreasing = T),] #내림 차순으로 정렬
+iris.new = iris[order(iris$Sepal.Length),]      #정렬된 데이터를 저장
+head(iris.new)
+iris[order(iris$Species, -iris$Petal.Length, decreasing = T),]# 정렬 기준이 2개
+```
+
+(1) **order()** 함수를 사용하여 iris 데이터셋의 **Sepal.Length** 열을 오름차순으로 정렬
+(2)**Sepal.Length** 열을 기준으로 iris데이터셋을 오름차순으로 정렬
+(3) **Sepal.Length** 열을 기준으로 iris데이터셋을 내림차순으로 정렬한 데이터셋을 iris.new 변수에 할당
+(4)Spcies와 Petal.Length를 기준으로 내림차순으로 데이터 정렬
+
+## 코드 7-11 
+
+```{r}
+sp = split(iris, iris$Species) #품종별로 데이터 분리
+sp            #분리 결과 확인
+summary(sp)   #분리 결과 요약
+sp$setosa     #setosa 품종의 데이터 확인
+
+```
+
+(1)iris의 Species별로 데이터를 분리
+(2) **summary()**함수를 사용하여 데이터 요약
+(3) sp의 setosa 품종 데이터 호출
+
+## 코드 7-12
+
+```{r}
+subset(iris, Species == 'setosa')
+subset(iris, Sepal.Length>7.5)
+subset(iris, Sepal.Length > 5.1 & Sepal.Width > 3.9)
+
+subset(iris, Sepal.Length > 7.6, select= c(Petal.Length, Petal.Width))
+```
+
+(1) **subset()**함수를 이용하여 iris 데이터셋에서 품종이 setosa인 행들만 추출한다.
+(2) iris 데이터셋에서 꽃받침의 길이가 7.5보다 큰 행들만 추출한다.
+(3) iris 데이터셋에서 꽃받침의 길이가 5.1보다 크고 꽃받침의 폭이 3.9보다 큰 행들만 추출한다.
+
+## 코드 7-13
+
+```{r}
+x= 1:100
+y= sample(x, size=10, replace= FALSE) #비복원 추출
+y
+```
+
+(1)x변수에 1부터 100까지 저장
+(2)**sample()**함수에서 size는 추출할 값의 개수를 지정하는 매개변수이고, replace= FALSE는 비복원 추출이다.
+
+## 코드 7-14
+
+```{r}
+idx= sample(1:nrow(iris), size= 50,
+            replace=FALSE)
+iris.50 = iris[idx,] #50개의 행 추출
+dim(iris.50)          #행과 열의 갯수 확인
+head(iris.50)
+```
+
+
+(1) **sample()**함수를 이용하여 iris데이터 셋에서 비복원 추출 방식으로 50개의 행 인덱스 추출
+(2) iris.50에 비복원 추출한 50개의 인덱스를 이용하여 해당하는 row를 iris.50에 할당
+(3) 몇 by 몇인지 확인
+(4)iris.50데이터셋의 6개의 상단 데이터 출력
+
+## 코드 7-15
+
+```{r}
+sample(1:20, size=5)
+sample(1:20, size=5)
+sample(1:20, size=5)
+
+set.seed(100)
+sample(1:20, size=5)
+set.seed(100)
+sample(1:20, size=5)
+set.seed(100)
+sample(1:20, size=5)
+```
+(1) 비복원 추출 함수 **sample()**을 사용하였을때는 출력할때마다 답이 달라진다.
+(2)**set.seed()**함수는 다음번에 다시 추출해도 같은 값이 나오게끔 만들어주는 함수이다.
+
+## 코드 7-16
+
+```{r}
+combn(1:5,3)  #1~5에서 3개를 뽑는 조합
+
+x= c('red','green','blue','black','white')
+com = combn(x,2)      #x의 원소를 2개씩 뽑는 조합
+com
+
+for(i in 1:ncol(com)){
+  cat(com[,i], '\n')
+}
+```
+## 코드 7-17
+
+```{r}
+
+agg= aggregate(iris[,-5], by=list(iris$Species), FUN=mean)
+agg
+
+```
+
+(1)**aggregate(iris[,-5], by=list(iris$Species), FUN=mean)**는 품종별로 iris데이터셋에서 Species 열이 빠진 데이터셋을 기반으로 평균을 계산한다.
+
+## 코드 7-18
+
+```{r}
+agg= aggregate(iris[,-5], by=list(표준편차= iris$Species), FUN=sd)
+agg
+```
+
+(1)**aggregate(iris[,-5], by=list(표준편차= iris$Species), FUN=sd)**는 iris데이터셋에서 Species열을 삭제시킨 데이터셋을 가지고 품종별로 표준편차를 구하는 코드이다.
+
+## 7-19
+
+```{r}
+head(mtcars)
+agg= aggregate(mtcars, by=list(cyl=mtcars$cyl, vs= mtcars$vs), FUN=max)
+
+agg
+```
+
+## 코드 7-20
+
+```{r}
+x= data.frame(name=c('a','b','c'), math=c(90,80,40))
+y= data.frame(name=c('a','b','c'), korean=c(75,60,90))
+x
+y
+```
+
+두개의 데이터프레임 생성
+
+## 코드 7-21
+
+```{r}
+z= merge(x,y, by=c('name'))
+z
+```
+
+**merge(x,y, by=c('name'))**함수는 x,y를 병합하고 병합의 기준이 되는 열이 name임을 의미한다.
+
+## 코드 7-22
+
+```{r}
+merge(x,y, all.x=T)
+merge(x,y, all.y=T)
+merge(x,y, all=T)
+```
+
+(1) **merge()** 함수에서 **all.x=T**의 의미는 첫 번째 데이터셋의 행들을 모두 출력하고 이행들과 대응도는 행이 두번째 데이터셋에 있으면 병합해서 출력, 없으면 NA로 출력하라는 의미
+(2)**merge()** 함수에서 **all.y=T**의 의미는 두 번째 데이터셋의 행들을 모두 출력하고 이행들과 대응도는 행이 두번째 데이터셋에 있으면 병합해서 출력, 없으면 NA로 출력하라는 의미
+(3)*merge()** 함수에서 **all=T**의 의미는 두 데이터셋에서 공통열의 값들이 어느 쪽에 있더라고 모두 출력하고, 두 데이터셋에서 대응되는 행들이 없으면 NA로 출력
+
+
+## 코드 7-23
+
+```{r}
+x= data.frame(name=c('a','b','c'), math= c(90,80,40))
+y= data.frame(sname= c('a','b','c'), korean=c(75,60,90))
+x
+y
+merge(x,y, by.x= c('name'), by.y= c('sname'))
+```
+
+
+**merge()** 함수에서 매개변수 by.x는 두개의 데이터셋 중에서 첫 번째 데이터셋의 병합 기준 열의 이름을 지정하고, by.y는 두번째 데이터셋의 병합 기준 열의 이름을 지정하는 역할을 한다.
+
+
+
+
+

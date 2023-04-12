@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+    <head>
+        <title>20191624신봉균</title>
+        <meta name="viewport"  charset= 'utf-8'content="initial-scale=0.75">
+        
+        <style>
+          /* HTML과 body 요소의 높이와 너비를 100%로 설정하고, 배경 이미지를 지정 */
+          html, body {
+            height: 100vh;
+            width: 100vw;
+            background-image: url(./images/bg.jpg);
+            background-size: cover;
+            background-position: center; /*이미지 가운데 기준으로 정렬*/
+            background-repeat: no-repeat;  /*이미지 반복 X*/
+            background-attachment: fixed; /*이미지 고정*/
+          }
+          /* contents 클래스를 가진 div 요소의 스타일을 설정합니다. */
+          .contents {
+            width: 700px;        /*까만색 박스 가로 세로 길이 설정*/
+            height: 860px;
+            background-color: rgba(0, 0, 0, 0.7); /*배경 색은 까만색으로 하고 투명도는 0.7로 부여*/
+            color: green;       /*글자 색은 그린색*/
+            margin: 0px auto;    /*까만색 박스 html과 간격 설정*/
+            text-align: center;     /*까만색 박스 안 글자 가운데 정렬*/
+            /*border: 2px solid red; /*까만색 박스 테두리 빨간색으로 설정 굵기는 2px*/
+          }
+          .word{
+            color: black;     /*word 박스에 글자 검정색으로 설정*/
+          }
+          .contents > h1{ /*welcome to beer house 글자 사이즈, 내용들과의 간격 설정*/
+            font-size: 250%;
+            padding-top: 0px; /*글자 가 담겨있는 박스 위에 딱붙이기*/
+            /*border: 2px solid yellow;*/
+            margin: 3%; /*글자내용과 딱붙이기*/
+            height: 40px; /*높이는 content를 준으로 6퍼센트*/
+          }
+     
+          .container {
+            display: flex;
+            flex-wrap: wrap; /* 자동 줄바꿈 */
+            align-content: space-evenly; /*flex item간 간격 균등하게*/
+            flex-direction: row;
+            justify-content: space-evenly; /*flex item간 간격 균등하게*/
+            /*border: 4px solid purple;*/
+            width: 100%;
+            height: 800px;
+
+          }
+          .container > div {
+            border: 1px solid red;
+            background-color: white; /*split 박스 바탕색 하얀색*/
+            width: 30%; /* 이미지의 크기 조정 */
+            height: 45%;
+            margin: 2%; /* 이미지 간의 간격 조정 */
+            display: flex; /*split 박스 flex형식으로 배치*/
+            flex-direction: column; /*열 방향으로 배치*/
+            
+          }
+          .split img {
+            width: 100%; /* 이미지의 가로 크기를 조정 100%으로 해야 split div에 가로가 꽉참 */
+            height: 110%;
+            /*border: 2px solid red;*/
+            }
+          .split .word{
+            text-align: center; /*글자 가운데정렬*/
+            width: 100%;
+            /*border: 2px solid red;*/
+          }
+          .split button {
+            background-color: green;        /*배경색 그린*/
+            color: white;               /*버튼의 글자색은 하얀색*/
+            margin-top: 10px;       /*버튼 테두리와 word div와의 간격*/
+            margin-bottom: 5px;           
+            padding-right: 10px;     /*버튼 테두리와 내용의 간격 설정*/
+            padding-left: 10px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border: 1px solid greenyellow; /*테두리 설정 굵기는 1px*/
+          }
+          .split button:hover{
+            background-color: orangered; /*버튼에 커서 올렸을 때 버튼 배경색이 주황색으로 바뀌게 설정*/
+            cursor: pointer; /*마우스를 버튼위에 올렸을때 포인트로 바뀜*/
+          }
+        </style>
+    </head>
+    <body>
+        <div class="contents"> <!--까만색 박스-->
+            <h1>Welcome to Beer House</h1>
+            <div class="container"><!--까만색 박스 안에 상자 4개-->
+                <div class="split"><!--까만색 박스 안에 상자 안에 영역을 두개로 나누기 위한 전처리-->
+                    <div class="img"> <!--두개의 영역으로 나눈 후 한 영역은 이미지-->
+                        <img src="./images/pale1.jpg">
+                    </div>
+                    <div class="word"> <!--두개의 영역으로 나눈 후 나머지 영역은 글-->
+                        <h1><b>pale ade</b></h1>
+                        <p>pale ale is a golden to<br>amber coloured beer style<br> brewed with pale malt</p>
+                        <a href="https://d2.naver.com/helloworld/8540176"><button>View Detail</button></a> <!--버튼 클릭시 상호작용 설정-->
+                    </div>
+                </div>
+                <!--split div 반복-->
+                <div class="split">
+                    <div class="img">
+                        <img src="./images/lager.jpg">
+                    </div>
+                    <div class="word">
+                        <h1><b>pale ade</b></h1>
+                        <p>pale ale is a golden to<br>amber coloured beer style<br> brewed with pale malt</p>
+                        <a href="https://d2.naver.com/helloworld/8540176"><button>View Detail</button></a>
+                    </div>
+                </div>
+                    <!--split div 반복-->
+                <div class="split">
+                    <div class="img">
+                        <img src="./images/stout.jpg">
+                    </div>
+                    <div class="word">
+                        <h1><b>pale ade</b></h1>
+                        <p>pale ale is a golden to<br>amber coloured beer style<br> brewed with pale malt</p>
+                        <a href="https://d2.naver.com/helloworld/8540176"><button>View Detail</button></a>
+                    </div>
+                </div>
+                    <!--split div 반복-->
+                <div class="split">
+                    <div class="img">
+                        <img src="./images/bitter.jpg">
+                    </div>
+                    <div class="word">
+                        <h1><b>pale ade</b></h1>
+                        <p>pale ale is a golden to<br>amber coloured beer style<br> brewed with pale malt</p>
+                        <a href="https://d2.naver.com/helloworld/8540176"><button>View Detail</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
