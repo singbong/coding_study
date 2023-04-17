@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>포지션 공부</title>
+    <style>
+        body{
+            height: 100vh; /* vh : viewport height */
+            margin: 0;
+            border: 1px solid red;
+        }
+        .photo{
+            background-image: url(./장원영.jpg);
+            background-size: cover;
+            background-repeat:no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            height: 70%;
+            border: 2px solid black;
+        }
+        .text{
+            border: 2px solid rgba(214, 11, 21, 0.699);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: yellow;
+            width: 300px;
+            height: 200px; 
+            background-color: rgb(0, 0, 0, 0.7);
+        }
+        .text > button{
+            width: 70px;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+            background-color: white;
+            font-weight: bold;
+        }
+        .text button:hover{
+            background-color: red;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="photo">
+        <div class="text">
+            <h1>장원영</h1>
+            <p>2004년생<br>아이브 걸그룹 소속</p>
+            <button>More</button>
+        </div>
+    </div>
+</body>
+</html>

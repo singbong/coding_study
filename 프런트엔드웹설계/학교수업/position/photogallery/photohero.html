@@ -11,17 +11,18 @@
                 background-image: url(photographer.png);
                 background-size: cover;
                 background-position: center;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
+                background-repeat: no-repeat; /*no-repeat을 설정안한상태에서 사진의 사이즈가 작다면 그 사진이 반복되서 남은 공간을 채운다*/
+                background-attachment: fixed; /*배경이미지가 뷰포트에 영향을 받지않고 고정된다.*/
                 position: relative;
                 height: 70%;
+                border: 1px solid red;
             }
             .title {
                 /* 엘리먼트를 영역 내에서 가운데 위치시키는 구문들 */
                 position: absolute; /* 원래 흐름에서 떼어낸 다음 절대좌표로 이동 */
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%); 
                 text-align: center;
                 color: white;
             }
