@@ -13,6 +13,8 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
+                margin: 0;
+                padding: 0;
             }
             .slogan {
                 background-color: rgba(0, 0, 0, 0.5); /*red green blue alpha*/
@@ -54,18 +56,22 @@
 
            }
            ul {
-            list-style: none;
+            list-style: none; /*땡땡이 표시 삭제*/
             background-color: rgb(0, 0, 0);
-            overflow: hidden;
             margin: 0;
             padding: 0;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            overflow: hidden; /* 요소의 내용이 자신의 경계를 벗어날 때, 그 내용을 잘라내고 보여주지 않도록 설정하는 CSS 속성입니다.*/
            }
            li {
             float: left;
            }
            li > a {
-            text-decoration: none;
-            display: block;
+            text-decoration: none; /*글자 밑에 밑줄 제거*/
+            display: block; /*안에 element들이 인라인형태가 아닌 불록형태로 쌓인다.*/
             padding: 14px 16px;
             color: white;
             text-align: center;
