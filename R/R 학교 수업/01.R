@@ -1,6 +1,26 @@
-idx= sample(1:nrow(iris), size= 50,
-            replace=FALSE)
-idx
-iris.50 = iris[idx,] #50개의 행 추출
-dim(iris.50)          #행과 열의 갯수 확인
-head(iris.50)
+a= c(1,2,3,4,5, 10, 100)
+a
+sum(a %in% 3)
+
+seq(1,20, 3)
+
+
+rep(1:3, 2)
+
+names(a)
+mean(a, trim = 0.55)
+
+summary(a)
+
+diff(range(a))
+
+rownames(iris)
+colnames(iris)
+dim(iris)
+nrow(iris)
+
+m= matrix(1:20, nrow = 4, ncol = 5)
+m= data.frame(m)
+colnames(m)= c('a','b','c','d','e')
+m
+class(m)
