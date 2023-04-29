@@ -1,67 +1,74 @@
-import random
-
-
-SIZE= 10
-stack= [None for _ in range(SIZE)]
-top= -1
-
-
-def isStackFull():
-    global SIZE, stack, top
-    if (top >= SIZE-1):
+def isQEmpty():
+    global SIZE,q, front, rear
+    if (front == rear):
         return True
-    else :
+    else:
         return False
     
-def isStackEmpty():
-    global SIZE, stack, top
-    if(top == -1):
+def isQFull():
+    global SIZE,q, front, rear
+    if (rear == SIZE-1):
         return True
-    else :
+    else:
         return False
     
-def push(data):
-    global SIZE, stack, top
-    if (top >= SIZE-1):
-        print("스택이 다참")
+    
+def enQ(data):
+    global SIZE,q, front, rear
+    if (rear == SIZE-1):
+        print('큐 꽉참')
         return
-    top += 1
-    stack[top] = data
+    rear +=1
+    q[rear]= data
     
-def pop():
-    global SIZE, stack, top
-    if(isStackEmpty()):
+    
+def deQ():
+    global SIZE,q, front, rear
+    if(isQEmpty()):
+        print('큐가 비었습니다.')
         return None
-    data = stack[top]
-    stack[top] = None
-    top -= 1
+    front +=1
+    data= q[front]
+    q[front]= None
     return data
-
-def peek():
-    global SIZE, stack, top
-    if(isStackEmpty()):
-        print("스택이 깡통.")
-        return None
-    return stack[top]
-
-
-if __name__ == '__main__':
-
-    stoneArray =['빨강','파랑','초록','노랑','보라','주황']
-    random.shuffle(stoneArray)
     
-    print('과자집에 가는길: ', end=' ')
-    for stone in stoneArray:
-        push(stone)
-        print(stone, '-->', end=' ')
-    print('과자집')
+    
+def peek():
+    global SIZE,q, front, rear
+    if(isQEmpty()):
+        print('큐가 비었습니다')
+        return None
+    return q[front+1]
 
-    print('우리집에 오는길: ', end=' ')
-    while True:
-        stone= pop()
-        if stone ==None:
-            
-            break
-        print(stone, '-->', end=' ')
-    print('우리집')
+##전역 변수 선언 부분##
+SIZE= int(input('큐 크기를 입력하세요 ==>'))
+q = [None for _ in range(SIZE)]
+front= rear= -1
+
+## 메인 함수 선언 부분##
+if __name__ == '__main__':
+    select= input('삽입(I)/추출(E)/확인(V)/종료(X) 중 하나를 선택 ==>')
+    
+    while (select != 'X' and select != 'x'):
+        if select == 'I' or 'i':
+            data= input('입력할 데이터 ==>')
+            enQ(data)
+            print('큐 상태: ', q)
+        elif select == 'E' or select=='e':
+            data= deQ()
+            print('추출된 데이터==>', data)
+            print('큐 상태:', q)
+        elif select == 'V' or select=='v':
+            data= peek()
+            print('확인된 데이터 ==>', data)
+            print('큐 상태: ', q)
+        else:
+            print('입력이 잘못됨')
+
+        select= input('삽입(I)/추출(E)/확인(V)/종료(X) 중 하나를 선택 ==>')
+    
+    print('프로그램 종료!')
+    
+    
+    
     
