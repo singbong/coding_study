@@ -1,0 +1,152 @@
+---
+title: "9장 지도와 데이터"
+author: "신봉균 20191624"
+date: "`r Sys.Date()`"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 코드9-1
+
+```{r}
+library(ggmap)
+##ggmap::register_google(key = '본인 API 키')##
+register_google(key = 'AIzaSyDRI065JSqKKXqcmVbZQ7GiNnoKp0dA0ys')
+gc= geocode(enc2utf8('구리시청'))
+gc
+cen= as.numeric(gc)
+map <- get_googlemap(center=cen) 		# 지도 생성
+ggmap(map) 
+
+```
+
+**geocode()** 함수는 지명을 경도와 위도로 바꾸는 기능을한다. 
+**enc2utf8()** 함수는 한글 인코딩을 utf8 포맷으로 바꾸어준다.
+**as.numeric()** 함수는 변수를 실수형태로 변환시켜준다.
+**get_google()**함수는 경도와 위도를 바탕으로 지도 이미지를 불러온다.
+**ggmap()** 함수는 불러온 지도이미지를 화면에 표시하는 역할을 한다.
+
+## 코드 9-2
+
+```{r}
+gc= geocode(enc2utf8('설악산'))
+cen= as.numeric(gc)
+map <- get_googlemap(center=cen,
+                     zoom=9) 		# 지도 생성
+ggmap(map) 
+```
+
+설악산 좌표값을 불러와서 실수형태로 변형시킨 다음 지도의 중심으로 잡고 확대는 **zoom=9**으로 설정한다.
+
+## 코드9-3
+
+```{r}
+cen = c(-118.233248, 34.085015)        #경도와 위도 값을 center값으로 직접 입력
+map <- get_googlemap(center=cen,
+                     zoom = 20,
+                     size = c(640,640),
+                     maptype = 'satellite') 		# 지도 생성
+ggmap(map) 
+
+```
+
+경도와 위도를 직접 입력하고 사진의 크기는 640x640, 지도 타입은 위성사진의 지도를 불러오고 확대 정도는 20으로 설정하였다.
+
+## 코드 9-4
+
+```{r}
+
+gc= geocode(enc2utf8('용인'))
+cen= as.numeric(gc)
+map <- get_googlemap(center=cen,
+                     maptype = 'roadmap',
+                     marker= gc) 		# 지도 생성
+ggmap(map) 
+```
+매개변수 **marker=gc**는 gc좌표에 마킹표시를 해주는 역할을 한다.
+
+## 코드 9-5
+
+```{r}
+names= c('용두암','성산일출봉','정방폭포','중문관광단지','한라산1100고치','차귀도')
+
+addr = c('제주시 용두암길 15',
+         '서귀포시 성산읍 성산리',
+         '서귀포시 동홍동 299-3',
+         '서귀포시 중문동 2624-1',
+         '서귀포시 색달동 산1-2',
+         '제주시 한경면 고산리 125')
+gc= geocode(enc2utf8(addr))
+gc
+
+# 관광지 명칭과 좌표값으로 데이터 프레임 생성
+
+df= data.frame(name=names,
+               lon=gc$lon,
+               lat=gc$lat)
+df
+
+cen= c(mean(df$lon), mean(df$lat))
+map = get_googlemap(center=cen,
+                    maptype = 'roadmap',
+                    zoom=10,
+                    size= c(640,640),
+                    marker= gc)
+
+ggmap(map)
+
+gmap= ggmap(map)
+gmap+geom_text(data= df,
+               aes(x=lon, y=lat),
+               size=5,
+               label= df$name)
+```
+
+관광지의 명칭은 **names**, 주소는 **addr**에 저장한 후 **addr**의 주소에 대한 좌표값을 가져와서 **gc**에 저장한다.
+**ggmap()**함수를 이용하여 **map**에 **ggmap(map)**에 지도를 저장하고 그 지도 위에 **geom_text**함수를 이용하여 관강지 명칭을 지도 위에 겹쳐서 출력한다.
+
+## 코드 9-6
+
+```{r}
+sp= sample(1:nrow(wind), 50) #50개의 데이터 샘플링
+df= wind[sp,]
+head(df)
+cen= c(mean(df$lon), mean(df$lat)) ##지도의 중심정 계산
+gc= data.frame(lon=df$lon, lat=df$lat)  #측정 위치 좌표값 데이터
+head(gc)
+
+#측정 위치에 마커 표시하기
+
+map= get_googlemap(center =  cen,
+                   maptype = 'roadmap',
+                   zoom=6,
+                   marker=gc)
+ggmap(map)
+
+#풍속을 원의 크기로 표시하기
+
+map= get_googlemap(center = cen,                 #마커 없는 지도 가져오기
+                   maptype = 'roadmap',
+                   zoom=6)
+
+gmap= ggmap(map)
+
+gmap+geom_point(data= df,
+                aes(x=lon, y=lat, size=spd),
+                alpha=0.5,
+                col='blue')+
+  scale_size_continuous(range=c(1,14))
+
+
+
+
+```
+**wind** 데이터셋에는 5만여 곳 이상의 관측 지점에 대한 데이터가 있다. 이중에서 비복원 추출로 50개의 데이터를 임의로 추출한다.
+지도의 중심점 위치를 계산하여 **cen**에 저장, 츨정 지점 좌표값을 **gc**에 별도 저장한다.
+**scale_size_continuous()** 함수는 지도에 표시되는 원의 크기를 조정하는 함수이다.
+**range=c(1,14)** 매개변수는 1은 가장 작은 원의 크기를. 14는 가장 큰 원의 크기를 나타낸다.
+
+지도의 데이터를 관찰해보면 바다꼬에 있는 원의 크기가 육지에 있는 원보다 큰 것을 알 수 있다. 바다에서의 풍속이 육지보다 빠르다는 것을 알 수 있다.
