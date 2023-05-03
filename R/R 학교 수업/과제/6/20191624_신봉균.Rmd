@@ -9,144 +9,192 @@ output: word_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 코드9-1
+## 연습문제 1-1
 
 ```{r}
 library(ggmap)
-##ggmap::register_google(key = '본인 API 키')##
+library(ggplot2)
 register_google(key = 'AIzaSyDRI065JSqKKXqcmVbZQ7GiNnoKp0dA0ys')
-gc= geocode(enc2utf8('구리시청'))
-gc
-cen= as.numeric(gc)
-map <- get_googlemap(center=cen) 		# 지도 생성
+
+gc= geocode(enc2utf8('서울시청'))
+cen= as.numeric(gc)        #경도와 위도 값을 center값으로 직접 입력
+map <- get_googlemap(center=cen,
+                     size = c(600,600),
+                     maptype = 'roadmap') 		# 지도 생성
 ggmap(map) 
 
 ```
 
-**geocode()** 함수는 지명을 경도와 위도로 바꾸는 기능을한다. 
-**enc2utf8()** 함수는 한글 인코딩을 utf8 포맷으로 바꾸어준다.
-**as.numeric()** 함수는 변수를 실수형태로 변환시켜준다.
-**get_google()**함수는 경도와 위도를 바탕으로 지도 이미지를 불러온다.
-**ggmap()** 함수는 불러온 지도이미지를 화면에 표시하는 역할을 한다.
-
-## 코드 9-2
+## 연습문제 1-2
 
 ```{r}
-gc= geocode(enc2utf8('설악산'))
-cen= as.numeric(gc)
+gc= geocode(enc2utf8('금강산'))
+cen= as.numeric(gc)        #경도와 위도 값을 center값으로 직접 입력
 map <- get_googlemap(center=cen,
-                     zoom=9) 		# 지도 생성
+                     size = c(500,500),
+                     zoom = 8,
+                     maptype = 'hybrid') 		# 지도 생성
 ggmap(map) 
 ```
-
-설악산 좌표값을 불러와서 실수형태로 변형시킨 다음 지도의 중심으로 잡고 확대는 **zoom=9**으로 설정한다.
-
-## 코드9-3
+## 연습문제 1-3
 
 ```{r}
-cen = c(-118.233248, 34.085015)        #경도와 위도 값을 center값으로 직접 입력
+gc= geocode(enc2utf8('강남역'))
+cen= as.numeric(gc)        #경도와 위도 값을 center값으로 직접 입력
 map <- get_googlemap(center=cen,
-                     zoom = 20,
                      size = c(640,640),
-                     maptype = 'satellite') 		# 지도 생성
+                     zoom = 16,
+                     maptype = 'roadmap') 		# 지도 생성
 ggmap(map) 
-
 ```
 
-경도와 위도를 직접 입력하고 사진의 크기는 640x640, 지도 타입은 위성사진의 지도를 불러오고 확대 정도는 20으로 설정하였다.
-
-## 코드 9-4
-
+## 연습문제 1-4
 ```{r}
-
-gc= geocode(enc2utf8('용인'))
-cen= as.numeric(gc)
+cen = c(127.397692, 36.337058)        #경도와 위도 값을 center값으로 직접 입력
 map <- get_googlemap(center=cen,
-                     maptype = 'roadmap',
-                     marker= gc) 		# 지도 생성
+                     zoom = 9,
+                     maptype = 'roadmap') 		# 지도 생성
 ggmap(map) 
 ```
-매개변수 **marker=gc**는 gc좌표에 마킹표시를 해주는 역할을 한다.
 
-## 코드 9-5
+## 연습문제 1-5
 
 ```{r}
-names= c('용두암','성산일출봉','정방폭포','중문관광단지','한라산1100고치','차귀도')
+cen = c(135.502330, 34.693594)        #경도와 위도 값을 center값으로 직접 입력
+map <- get_googlemap(center=cen,
+                     zoom = 10,
+                     maptype = 'roadmap') 		# 지도 생성
+ggmap(map) 
+```
+## 연습문제 3번번
+```{r}
 
-addr = c('제주시 용두암길 15',
-         '서귀포시 성산읍 성산리',
-         '서귀포시 동홍동 299-3',
-         '서귀포시 중문동 2624-1',
-         '서귀포시 색달동 산1-2',
-         '제주시 한경면 고산리 125')
-gc= geocode(enc2utf8(addr))
-gc
+# 광역시 이름과 주소 정보
+cities = data.frame(
+  name = c("서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시", "울산광역시"),
+  address = c("서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시", "울산광역시")
+)
 
-# 관광지 명칭과 좌표값으로 데이터 프레임 생성
+# 각 광역시의 위치 정보 가져오기
+a = geocode(cities$address)
+cities$lon = a$lon
+cities$lat = a$lat
+cities
 
-df= data.frame(name=names,
-               lon=gc$lon,
-               lat=gc$lat)
-df
+# 지도 이미지 다운로드
+cen= c(mean(cities$lon), mean(cities$lat))
+map = get_googlemap(center = cen,
+                    zoom = 7,
+                    size = c(640,640),
+                    maptype = 'roadmap')
 
-cen= c(mean(df$lon), mean(df$lat))
-map = get_googlemap(center=cen,
-                    maptype = 'roadmap',
-                    zoom=10,
-                    size= c(640,640),
-                    marker= gc)
+# 지도에 마커와 텍스트 추가하기
+ggmap(map) +
+  geom_text(data = cities, aes(x = lon, y = lat, label = name),
+            color = "red", size = 3) +
+  geom_point(data = cities, aes(x = lon, y = lat),
+             color = "red", size = 3)
 
-ggmap(map)
 
-gmap= ggmap(map)
-gmap+geom_text(data= df,
-               aes(x=lon, y=lat),
-               size=5,
-               label= df$name)
+
+
+
 ```
 
-관광지의 명칭은 **names**, 주소는 **addr**에 저장한 후 **addr**의 주소에 대한 좌표값을 가져와서 **gc**에 저장한다.
-**ggmap()**함수를 이용하여 **map**에 **ggmap(map)**에 지도를 저장하고 그 지도 위에 **geom_text**함수를 이용하여 관강지 명칭을 지도 위에 겹쳐서 출력한다.
-
-## 코드 9-6
+## 연습문제 5번
 
 ```{r}
-sp= sample(1:nrow(wind), 50) #50개의 데이터 샘플링
-df= wind[sp,]
-head(df)
+# 패키지 설치 및 로드
+library(treemap)
+
+data("GNI2014")
+
+
+# 북아메리카 대륙에 있는 나라 선택
+df= GNI2014[which(GNI2014$continent=='North America'),]
+df= df[,c(2,4)]
+
+a= geocode(df$country)
+df$lon = a$lon
+df$lat= a$lat
+
 cen= c(mean(df$lon), mean(df$lat)) ##지도의 중심정 계산
 gc= data.frame(lon=df$lon, lat=df$lat)  #측정 위치 좌표값 데이터
-head(gc)
 
-#측정 위치에 마커 표시하기
 
-map= get_googlemap(center =  cen,
+#인구수를 원의 크기로 표시하기
+
+map= get_googlemap(center = cen,           
                    maptype = 'roadmap',
-                   zoom=6,
-                   marker=gc)
-ggmap(map)
-
-#풍속을 원의 크기로 표시하기
-
-map= get_googlemap(center = cen,                 #마커 없는 지도 가져오기
-                   maptype = 'roadmap',
-                   zoom=6)
+                   zoom=3)
 
 gmap= ggmap(map)
 
 gmap+geom_point(data= df,
-                aes(x=lon, y=lat, size=spd),
+                aes(x=lon, y=lat, size=population),
                 alpha=0.5,
-                col='blue')+
+                col='green')+
   scale_size_continuous(range=c(1,14))
 
+```
 
+
+## 연습문제 7번
+
+```{r}
+library(ggplot2)
+library(ggmap)
+getwd()
+setwd("C:/Users/Sin/Desktop/coding_study/R")
+
+register_google(key = 'AIzaSyDRI065JSqKKXqcmVbZQ7GiNnoKp0dA0ys')
+
+monthly_accident = read.csv(file = "./데이터.csv", encoding = 'cp949')
+
+myds <- aggregate(x = monthly_accident[monthly_accident[, "시도"] != "세종", "사망자수"],
+                  by = list("시도" = monthly_accident[monthly_accident[, "시도"] != "세종",]$시도), 
+                  FUN = sum)
+names <- myds$시도
+gc <- geocode(enc2utf8(names))
+cen <- c(mean(gc$lon), mean(gc$lat))
+df = data.frame(name = names, lon = gc$lon, lat = gc$lat, freq = myds$x)
+map <- get_googlemap(center = cen, maptype = "roadmap", zoom = 7)
+gmap <- ggmap(map)
+
+gmap + geom_point(data = df, 
+                  aes(x = lon, y = lat, size = freq), alpha = 0.3, col = "black") +
+  scale_size_continuous(range = c(1, 14)) 
 
 
 ```
-**wind** 데이터셋에는 5만여 곳 이상의 관측 지점에 대한 데이터가 있다. 이중에서 비복원 추출로 50개의 데이터를 임의로 추출한다.
-지도의 중심점 위치를 계산하여 **cen**에 저장, 츨정 지점 좌표값을 **gc**에 별도 저장한다.
-**scale_size_continuous()** 함수는 지도에 표시되는 원의 크기를 조정하는 함수이다.
-**range=c(1,14)** 매개변수는 1은 가장 작은 원의 크기를. 14는 가장 큰 원의 크기를 나타낸다.
 
-지도의 데이터를 관찰해보면 바다꼬에 있는 원의 크기가 육지에 있는 원보다 큰 것을 알 수 있다. 바다에서의 풍속이 육지보다 빠르다는 것을 알 수 있다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
