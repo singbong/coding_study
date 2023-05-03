@@ -1,16 +1,40 @@
-graph =[
-    [],
-    [2,3,8],
-    [1,7],
-    [1,4,5],
-    [3,5],
-    [3,4],
-    [7],
-    [2,6,8],
-    [1,7]
-]
+from collections import deque
 
-stack= []
+def bfs(x, y):
+    global graph
+    q = deque([(x, y)])
+   
+    if graph[y][x] == 1:
+        return False
+    
+    while q:
+        a= q.popleft()
+        x, y = a[0], a[1]
+        if graph[y][x] == 0:
+            graph[y][x] = 1
+            if y-1 >=0:
+                q.append((x, y-1))
+            if y+1 < m:
+                q.append((x, y+1))
+            if x-1 >= 0:
+                q.append((x-1, y))
+            if x+1 < n:    
+                q.append((x+1, y))
+    return True
 
-stack += reversed(graph[1])
-print(stack)
+n,m= 5,4
+
+graph= [
+        [0,0,1,1,0],
+        [0,0,0,1,1],
+        [1,1,1,1,1],
+        [0,0,0,0,0]
+    ]
+
+result = 0
+for i in range(m):
+    for j in range(n):
+        if bfs(j, i) == True:
+            result += 1
+
+print(result)
