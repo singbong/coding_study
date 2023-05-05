@@ -10,7 +10,7 @@ def bfs(x, y):
     
     while q:
         a= q.popleft()
-        x, y = a[0], a[1]
+        x, y = a
         if graph[y][x] == 0: 
             graph[y][x] = 1
             if y-1 >=0:

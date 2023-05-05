@@ -1,40 +1,10 @@
-from collections import deque
+a= [(1,2), (3,4)]
 
-def bfs(x, y):
-    global graph
-    q = deque([(x, y)])
-   
-    if graph[y][x] == 1:
-        return False
-    
-    while q:
-        a= q.popleft()
-        x, y = a[0], a[1]
-        if graph[y][x] == 0:
-            graph[y][x] = 1
-            if y-1 >=0:
-                q.append((x, y-1))
-            if y+1 < m:
-                q.append((x, y+1))
-            if x-1 >= 0:
-                q.append((x-1, y))
-            if x+1 < n:    
-                q.append((x+1, y))
-    return True
+centroidA= a[0]
+print(centroidA)
+#출력: (1,2) #
 
-n,m= 5,4
+new_centroid= [centroidA[0]+1, centroidA[1]+1]
+print(new_centroid)
+#출력: (2,3)
 
-graph= [
-        [0,0,1,1,0],
-        [0,0,0,1,1],
-        [1,1,1,1,1],
-        [0,0,0,0,0]
-    ]
-
-result = 0
-for i in range(m):
-    for j in range(n):
-        if bfs(j, i) == True:
-            result += 1
-
-print(result)
