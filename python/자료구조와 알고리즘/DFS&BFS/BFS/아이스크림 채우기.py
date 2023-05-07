@@ -21,7 +21,7 @@ def bfs(x, y):
                 q.append((x-1,y))
             if x+1 < n:    
                 q.append((x+1,y))
-    return True
+    return 
 n,m= 5,4
 
 graph= [
