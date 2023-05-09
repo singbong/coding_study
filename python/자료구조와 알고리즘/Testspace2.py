@@ -1,35 +1,16 @@
-from collections import deque
+array= [7,5,9,0,3,1,6,2,4,8]
 
-graph =[
-    [],
-    [2,3,8],
-    [1,7],
-    [1,4,5],
-    [3,5],
-    [3,4],
-    [7],
-    [2,6,8],
-    [1,7]
-]
+def quick(array):
+    if len(array) <= 1:
+        return array
 
-visited= [None for _ in range(len(graph))]
+    pivot= array[0]
+    array=array[1:]
 
-def BFS(graph, v, visited):
-    q= deque([v])
-    visited[v]= True
+    left = [x for x in array if x < pivot]
+    right = [x for x in array if x >= pivot]
 
-    while q:
-        a= q.popleft()
-        print(a, end=' ')
-        for i in graph[a]:
-            if not visited[i]:
-                q.append(i)
-                visited[v]=True
-                
-                
+    return quick(left) + [pivot] + quick(right)
 
-            
-BFS(graph, 1, visited)
-
-
+print(quick(array))
 

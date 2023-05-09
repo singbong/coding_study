@@ -13,8 +13,8 @@
 array= [7,5,9,0,3,1,6,2,9,1,4,8,5,2]
 result= [0 for _ in range(max(array)+1)]
 
-for i in array:
-    result[i] +=1
+for i in range(len(array)):
+    result[array[i]] += 1
 
 for i in range(len(result)):
     for v in range(result[i]):

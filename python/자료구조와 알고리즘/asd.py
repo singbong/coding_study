@@ -1,5 +1,2 @@
-from collections import deque
-
-a= deque(7,6)
-
-print(a)
+for i in range(5):
+    print(i)
