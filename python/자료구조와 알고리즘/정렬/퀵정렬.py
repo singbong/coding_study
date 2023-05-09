@@ -33,3 +33,21 @@ def quick_sort(array,start,end):
 
 quick_sort(array, 0, len(array)-1)
 print(array)
+
+
+#파이써닉하게 짠 코드#
+
+
+def quick(array):
+    if len(array) <= 1:
+        return array
+    pivot= array[0]
+    array= array[1:]
+
+    #간편하게 컴프리헨션 사용#
+    left = [ x for x in array if pivot >= x]
+    right = [ x for x in array if pivot < x]
+
+    return quick(left) + [pivot] + quick(right)
+
+print(quick(array))

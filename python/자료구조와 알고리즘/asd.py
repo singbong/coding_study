@@ -1,10 +1,5 @@
-a= [(1,2), (3,4)]
+from collections import deque
 
-centroidA= a[0]
-print(centroidA)
-#출력: (1,2) #
+a= deque(7,6)
 
-new_centroid= [centroidA[0]+1, centroidA[1]+1]
-print(new_centroid)
-#출력: (2,3)
-
+print(a)
