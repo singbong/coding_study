@@ -14,7 +14,6 @@ def binary_search(array, target, start, end):
 #n(원소의 개수)과 target(찾고자 하는 값)을 입력 받기
 n, target= list(map(int, input().split()))
 
-
 array= list(map(int, input().split()))
 
 # 이진 탐색 수행 결과 출력

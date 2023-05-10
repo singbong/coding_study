@@ -1,0 +1,119 @@
+---
+title: "10장 워드 클라우드"
+author: "신봉균 20191624"
+date: "`r Sys.Date()`"
+output: word_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 코드 10-1
+
+```{r cars}
+Sys.setenv(JAVA_HOME='C:/Program Files/Java/jre1.8.0_211')
+library(wordcloud)                        #워드클라우드         
+library(KoNLP)                            # 한국어 처리      
+library(RColorBrewer)                     # 색상 선택    
+text <- readLines("./coding_study/R/10장/mis_document.txt", encoding ="UTF-8" ) #파일 읽기   
+buildDictionary(ext_dic = "woorimalsam")        #'우리 말씀' 한글사전 로딩
+pal2 <- brewer.pal(8, "Dark2")                  #팔레트 생성
+noun <- sapply(text,extractNoun, USE.NAMES=F)   #명사 추출
+noun                                            #추출된 명사 출력
+
+```
+
+한국어 자연어 처리를 지원하는 **KoNLP** 패키지를 이용하려면 java가 설치되어 있어야 하는데,
+위 명령문은 자바 실행 환경(JRE)을 이용할 수 있도록 설정하는 내용이다. 컴퓨터에 따라 설치된
+폴더와 **JRE** 버전이 다를 수 있으니 자신의 컴퓨터에 맞게 경로를 설정해 주어야 한다.
+
+워드클라우드 작성에 필요한 패키지들을 불러온다. 해당 패키지들은 미리 설치되어 있어야 한다.
+**KoNLP** 패키지의 경우 설치가 되지 않으면 출판사에서 제공하는 별도 자료를 참조하도록 한다.
+
+**buildDictionary** 함수는 워드클라우드 작성 시 필요한 한글 사전을 불러오는 역할을 한다.
+워드클라우드 작성 대상 파일은 문장 형태로 되어있는데 문장으로부터 단어를 추출하러면 사전이 필요하다.
+즉, 어떤 문자열이 사전에 있으면 단어라고 인식한다.
+
+대국민 담화문 내용으로부터 명사를 추출하여 noun에 저장하고 noun의 내용을 출력한다. 내용을 보면 담화문
+의 문장하나가 리스트 noun에 하나의 원소로 저장된 것을 알 수 있다. 하나의 문장은 단어 단위로 분리되어 있다.
+
+
+## 코드 10-2
+
+```{r}
+noun2 <- unlist(noun)                              #추출된 명사 통합 
+wordcount <- table(noun2)                         #단어 빈도수 계산
+temp <- sort(wordcount, decreasing=T)[1:10]        #빈도수 높은 단어 10개의 추출
+temp                        
+temp <- temp[-1]                                   #공백 단어 제거
+barplot(temp,                                      #막대그래프 작성
+        names.arg = names(temp),                   #막대 이름을 단어로 표시
+        col ="lightblue",                         #막대의 색상 지정
+        main ="빈도수가 높은 단어", ylab = "단어 빈도수")
+```
+
+**unlist()**함수는 리스트의 형태의 자료를 벡터 형태로 바꾼다. 이로서 **noun**에서 각 원소별로 나누어져
+있던 단어들이 하나의 벡터로 통합된다. **table()** 함수를 통해 단어별로 빈도수를 계산하여 **wordcount**에 저장한다.
+
+**wordcount**를 내림차순으로 정렬한 후 빈도수가 높은 단어 10개를 추출하여 temp에 저장한다. temp의 내용 보면 공백
+문자가 가장 빈도수가 높게 나오는데, 의미 없는 단어이므로 temp[-1]을 통해 temp에서 제거한다.
+
+**temp**로 막대그래프를 작성한다. '불법','여성'과 같은 단어가 상위에 랭크된 것을 알 수 있는데 불법촬영이 범죄임을
+강조하다 보니 '불법'이라는 단어가 많이 등장하고 불법촬영의 피해자 중 여성이 차지하는 비중이 높아 '여성'이라는
+단어가 자주 등장한다고 판단된다.
+
+## 코드 10-3
+
+```{r}
+wordcloud(names(wordcount),    #단어들 
+          freq=wordcount,      # 단어들의 빈도
+          scale=c(6,0.7),      #단어의 폰트 크기
+          min.freq=3,          #단어의 최소 빈도
+          random.order=F,      #단어의 출력위치
+          rot.per=.1,          #90도 회전 단어 비율
+          colors=pal2)        #단어의 색
+```
+
+**names(wordcount)** 워드칼라우드 상에 표시할 단어를 지정한다.
+
+**freq=wordcount** 워드클라우드 상에 표시할 단어의 빈도수를 지정한다.
+
+**scale=c(6,0.7)** 표시할 단어의 폰트 크기를 지정한다. 여기서 6은 폰트의 최대 크기, 0.7은 폰트의 최소 크기를 의미한다.
+
+**min.freq=3** 빈도수가 3 이상인 단어들만 표시한다.
+
+**random.order=F** 단어가 표시될 위치를 지정한다 T는 단어의 표시 위치를 무작위로 지정할 수 있고, F는 빈도수가 높은 다어일수록 중앙쪽에 배치된다.
+
+**rot.per=.1**단어를 표시할 때 세로 방향으로 표시할 단어의 비율을 지정한ㄷ. 여기서 -1은 10%를 의미한다.
+
+**colors=pal2** 빈도수에 따라 pal2에 있는 색으로 단어의 색을 지정한다.
+
+## 코드 10-4
+
+```{r}
+# 빈도수 높은데 워드클라우드에 없으면 사용자 사전에 추가
+buildDictionary(ext_dic = "woorimalsam",  
+                user_dic=data.frame("정치","ncn"),
+                replace_usr_dic = T)
+noun <- sapply(text,extractNoun, USE.NAMES=F)
+noun2 <- unlist(noun)             #추출된 명사 통합
+
+# 무의미한 단어 제거
+noun2 <- noun2[nchar(noun2)>1]  #1글자 단어 제거    
+noun2 <- gsub("하지","", noun2) #'하지' 제거  
+noun2 <- gsub("때문","", noun2) #'떄문' 제거  
+
+wordcount <- table(noun2)     
+wordcloud(names(wordcount),    #단어 빈도수 계산
+          freq=wordcount,      
+          scale=c(6,0.7),   
+          min.freq=3,
+          random.order=F,
+          rot.per=.1,
+          colors=pal2)
+```
+
+위 명령문 '**정치**'라는 단어가 사전에 없다고 가정하고 사전에 추가하는 과정을 보여준다.
+
+단어의 길이가 한글자인 단어는 대체로 별 의미가 없으므로 제거한다. 또한 **'하지'**,**'때문'**과 같이 의미 없는 단어도 제거한다. **gsub()**함수는 문자열을 바꾸는 함수로, **gsub('하지','',noun2)**는 **noun2**에 있는 단어 중
+**'하지'**는 **''**으로 바꾸라는 의미이다.
