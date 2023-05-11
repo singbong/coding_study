@@ -6,9 +6,9 @@
 
 퀵 정렬은 평균의 경우 O(NlogN)의 시간 복잡도를 가집니다.
 하지만 최악의 경우 O(N^2)의 시간 복잡도를 가집니다.
-    첫 번째 원소를 피벗으로 삼을때, 이미 정렬된 배이려에 대해서 퀵 정렬을 수행하면 어떻게 될까요?
+    첫 번째 원소를 피벗으로 삼을때, 이미 정렬된 배열에 대해서 퀵 정렬을 수행하면 어떻게 될까요?
 """
-array= [7,5,9,0,3,1,6,2,4,8]
+array= [5,7,9,0,3,1,6,2,4,8]
 
 def quick_sort(array,start,end):
     if start >= end: #원소가 1개인 경우 종료
@@ -18,10 +18,10 @@ def quick_sort(array,start,end):
     right =end
     while(left <= right):
         #피벗보다 큰 데이터를 찾을 때까지 반복
-        while(left <= end and array[left] <= array[pivot]):
+        while(left <= right and array[left] <= array[pivot]):
             left += 1
         # 피벗보다 작은 데이터를 찾을 때까지 반복
-        while(right > start and array[right] >= array[pivot]):
+        while(right >= left and array[right] >= array[pivot]):
             right -= 1
         if(left > right): #엇갈렸다면 작은 데이터와 피벗을 교체
             array[right], array[pivot] = array[pivot], array[right]

@@ -26,12 +26,12 @@
 
 """
 ## 피보나치 시간 복잡도 2의 n승 구현 방법
-# def fibo(x):
-#     if x== 1 or x== 2:
-#         return 1
-#     return fibo(x-1) + fibo(x-2)
+def fibo(x):
+    if x== 1 or x== 2:
+        return 1
+    return fibo(x-1) + fibo(x-2)
 
-# print(fibo(4))
+print(fibo(4))
 
 ##객체지향적으로 코드 짜보기##
 
@@ -56,8 +56,77 @@ print(find.finder())
     따라서 메모이제이션은 다이나믹 프로그래밍에 국한된 개념은 아닙니다.
     한번 계산된 결과를 담아 놓기만 하고 다이나믹 프로그래밍을 위해 할용하지 않을 수도 있습니다.
 """
+#피보나치 수열 하향식#
+a= int(input())
+
+d= [0]*(a+1)
+
+def fibo(x):
+    if x==1 or x== 2:
+        return 1
+    if d[x] != 0:
+        return d[x]
+    d[x]= fibo(x-1)+fibo(x-2)
+
+    return d[x]
+
+print(fibo(a))
+
+##객체지향적 코딩 짜보기##
+class fibo():
+    d= [] # 클래스 변수
+    def __init__ (self, x):
+        self.x= x
+
+    def finder(self):
+        if self.x==1 or self.x==2:
+            return 1
+        if fibo.d[self.x] != 0:
+            return fibo.d[self.x]
+        fibo.d[self.x]= fibo(self.x - 1).finder() + fibo(self.x - 2).finder()
+        return fibo.d[self.x]
+
+a= int(input())
+fibo.d= [0]*(a+1)  #클래스 변수 초기화
+find= fibo(a)
+print(find.finder())
 
 
+##상향식##
+
+d= [0]*100
+
+d[1]=1
+d[2]=1
+n= int(input())
+
+for i in range(3,n+1):
+    d[i]= d[i-1]+ d[i-2]
+
+print(d[n])
+
+##객체지향적 프로그래밍 짜보기
+
+class fibo():
+    d= []
+    def __init__(self, x):
+       self.x= x
+    def finder(self):
+        fibo.d[1]=1
+        fibo.d[2]=1
+
+        for i in range(3, self.x + 1):
+            fibo.d[i]=fibo.d[i-1]+fibo.d[i-2]
+
+        return fibo.d[self.x]
+    
+a= int(input())
+fibo.d= [0]*(a+1)
+
+find= fibo(a)
+print(find.finder())
+
+##메모이제이션을 이용한 상향식 하향식 방법을 사용하여 피보나치 함수를 생성하면 2^n에서 n으로 시간복잡도 감소##
 
 
 

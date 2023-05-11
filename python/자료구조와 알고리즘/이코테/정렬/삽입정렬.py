@@ -14,7 +14,7 @@ for i in range(1,len(array)):
         if array[v+1] < array[v]:
             array[v+1], array[v] = array[v], array[v+1]
         else:
-            break
+            break 
 
 print(array)
 

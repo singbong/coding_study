@@ -1,12 +1,12 @@
-class fibo():
-    def __init__(self, x):
-        self.x = x
+array= [7,5,9,0,3,1,6,2,4,8]
 
-    def finder(self):
-        if self.x == 1 or self.x == 2:
-            return 1
-        return fibo(self.x - 1).finder() + fibo(self.x - 2).finder()
 
-find = fibo(4)
-print(find.finder())
+for i in range(len(array)-1):
+    min_index= i
+    for v in range(i+1, len(array)):
+        if array[min_index] > array[v]:
+            min_index=v
+    array[min_index], array[i] = array[i], array[min_index]
 
+print(array)
+        
