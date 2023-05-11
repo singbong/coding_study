@@ -10,17 +10,13 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <style>
-    ::-webkit-scrollbar { 
-        display: none; 
-    }
     * {
         font-family: "Lato", sans-serif;
     }
-    body {
-        height: 100vh;
+    html, body {
+        height: 100%;
         color: #101010;
-        line-height: 1.8em;
-        margin: 0;
+        line-height: 1.8;
     }
     .img-1 {
         background-attachment: fixed;
@@ -34,17 +30,24 @@
         background-position: center;
         background-size: cover;
         background-image: url(w3images/parallax2.jpeg);
-        min-height: 100%;
-    }    
+        min-height: 400px;
+    }
+    .img-3 {
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        background-image: url(w3images/parallax3.jpg);
+        min-height: 400px;
+    }
 </style>
 <body>
 <!-- 메뉴(Navbar) -->
 <div class="w3-top">
     <div class="w3-bar" id="myNavbar">
-        <a class="w3-bar-item w3-button menu" href="javascript:void(0)" onclick="scrolling(event,'#home')">HOME</a>
-        <a class="w3-bar-item w3-button menu" href="javascript:void(0)" onclick="scrolling(event,'#about')"><i class="fa fa-user"></i> ABOUT</a>
-        <a class="w3-bar-item w3-button menu" href="javascript:void(0)" onclick="scrolling(event,'#portfolio')"><i class="fa fa-th"></i> PORTFOLIO</a>
-        <a class="w3-bar-item w3-button menu" href="javascript:void(0)" onclick="scrolling(event,'#contact')"><i class="fa fa-envelope"></i> CONTACT</a>
+        <a href="javascript:void(0)" onclick="scrolling(event,'#home')" class="w3-bar-item w3-button menu">HOME</a>
+        <a href="javascript:void(0)" onclick="scrolling(event,'#about')" class="w3-bar-item w3-button menu"><i class="fa fa-user"></i> ABOUT</a>
+        <a href="javascript:void(0)" onclick="scrolling(event,'#portfolio')" class="w3-bar-item w3-button menu"><i class="fa fa-th"></i> PORTFOLIO</a>
+        <a href="javascript:void(0)" onclick="scrolling(event,'#contact')" class="w3-bar-item w3-button menu"><i class="fa fa-envelope"></i> CONTACT</a>
     </div>
 </div>
 <!-- 첫번째 패럴랙스 배경 -->
@@ -64,11 +67,11 @@
   <div class="w3-light-grey">
     <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
   </div>
-  <p class="w3-wide"><i class="fa fa-camera"></i>Web Design</p>
+  <p class="w3-wide"><i class="fa fa-photo"></i>Web Design</p>
   <div class="w3-light-grey">
     <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:80%">80%</div>
   </div>
-  <p class="w3-wide"><i class="fa fa-camera"></i>Web Programming</p>
+  <p class="w3-wide"><i class="fa fa-laptop"></i>Programming</p>
   <div class="w3-light-grey">
     <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:70%">70%</div>
   </div>
@@ -82,42 +85,65 @@
 </div>
 
 <!-- 포트폴리오 섹션 -->
-<div id="portfolio">
-    <h3>MY WORK</h3>
-    <div>
-        <div>
+<div class="w3-center w3-container w3-padding-64" id="portfolio">
+    <h3 class="w3-wide w3-center">MY WORK</h3>
+    <div class="w3-row-padding w3-center">
+        <div class="w3-col m3">
             <img src="w3images/p1.jpg" style="width: 100%" onclick="onClick(this)" class="w3-hover-opacity" alt="This mist over the mountain">
+        </div>
+        <div class="w3-col m3">
+            <img src="w3images/p2.jpg" style="width: 100%" onclick="onClick(this)" class="w3-hover-opacity" alt="This mist over the mountain">
+        </div>
+        <div class="w3-col m3">
+            <img src="w3images/p3.jpg" style="width: 100%" onclick="onClick(this)" class="w3-hover-opacity" alt="This mist over the mountain">
+        </div>
+        <div class="w3-col m3">
+            <img src="w3images/p4.jpg" style="width: 100%" onclick="onClick(this)" class="w3-hover-opacity" alt="This mist over the mountain">
+        </div>
+    </div>
+    <div class="w3-row-padding w3-center">
+        <div class="w3-col m3">
+            <img src="w3images/p5.jpg" style="width: 100%" onclick="onClick(this)" class="w3-hover-opacity" alt="This mist over the mountain">
+        </div>
+        <div class="w3-col m3">
+            <img src="w3images/p6.jpg" style="width: 100%" onclick="onClick(this)" class="w3-hover-opacity" alt="This mist over the mountain">
+        </div>
+        <div class="w3-col m3">
+            <img src="w3images/p7.jpg" style="width: 100%" onclick="onClick(this)" class="w3-hover-opacity" alt="This mist over the mountain">
+        </div>
+        <div class="w3-col m3">
+            <img src="w3images/p8.jpg" style="width: 100%" onclick="onClick(this)" class="w3-hover-opacity" alt="This mist over the mountain">
         </div>
     </div>
 </div>
     
     
 <!-- Modal for full size images on click-->
-<div id="modal01" onclick="this.style.display='none'">
- <p><i style="font-size:64px"></i></p>
-  <span title="Close Modal Image"><i class="fa fa-remove"></i></span>
-  <div >
+<div id="modal01" onclick="this.style.display='none'" class="w3-modal w3-black">
+ <p class="w3-center"><i style="font-size:64px" class="fa fa-spinner w3-text-orange w3-spin"></i></p>
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-padding-64 w3-transparent">
     <img id="img01" class="w3-image">
     <p id="caption" class="w3-opacity w3-large"></p>
   </div>
 </div>
 
 <!-- 세번째 패럴랙스 배경 -->
-<div >
-    <div style="white-space: nowrap">
-        <span >CONTACT</span>
+<div class="img-3 w3-display-container w3-opacity-min">
+    <div class="w3-display-middle" style="white-space: nowrap">
+        <span class="w3-wide w3-xxlarge w3-text-white">CONTACT</span>
     </div>
 </div>
 
 <!-- Container (Contact Section) -->
-<div  id="contact">
-  <h3 >WHERE I WORK</h3>
-  <p ><em>I'd love your feedback!</em></p>
-  <div >
-        <div >
+<div class="w3-container w3-content w3-padding-64" id="contact">
+  <h3 class="w3-center">WHERE I WORK</h3>
+  <p class="w3-center"><em>I'd love your feedback!</em></p>
+  <div class="w3-row w3-padding-32">
+        <div class="w3-col m4">
           <img src="w3images/parallax1.jpeg" style="width:100%;">
         </div>
-        <div >
+        <div class="w3-col m8">
             <div class="w3-large w3-margin-bottom">
                 <i class="fa fa-map-marker  fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Chicago, US<br>
                 <i class="fa fa-phone  fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 151515<br>

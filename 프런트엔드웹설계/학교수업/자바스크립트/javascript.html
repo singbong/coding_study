@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 스크립트</title>
+
+</head>
+<body>
+    <h1 id="title" onmouseover="document.getElementById('title').innerHTML='자바스크립트 배우기'">Java Script</h1>
+    
+    <p id="out"></p>
+    <form id="myform">
+        반지름: <input type="text" name="'radius">
+    </form>
+    <button onclick="circle()">면적계산</button>
+    <script>
+        //주석문
+        /*주석문*/
+        //변수
+        // var a= Math.floor(Math.random() * 10);
+        // var b =5;
+        // document.getElementById('out').innerHTML= a*b;
+        // let c= 7;
+        // const d= 9; //상수 정의
+
+        
+        function circle(){
+            let r = document.forms['myform']['radius'].value;
+            const PI = 3.141516;
+            let size= PI*r**2
+            const out= document.getElementById('out')
+            out.innerHTML = '원의 면적 = ' + size
+        }
+
+
+    </script>
+</body>
+</html>
