@@ -89,6 +89,7 @@ class fibo():
 a= int(input())
 fibo.d= [0]*(a+1)  #클래스 변수 초기화
 find= fibo(a)
+
 print(find.finder())
 
 
