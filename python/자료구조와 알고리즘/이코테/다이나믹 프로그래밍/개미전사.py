@@ -9,7 +9,7 @@
 따라서 개미 전사가 정찰병에게 들키지 않고 식량창고를 약탈하기 위해서는 최소한 한 칸 이상
 떨어진 식량창고를 약탈해야 합니다.
 
- 1 3 1 5
+ 1 3 1 5 1 1 5
 
  이면 2번창고 4번창고를 터는게 식량을 가장 많이 확볼 할 수 있는 방법
 
@@ -21,6 +21,15 @@ N= int(input('식량창고의 개수 입력: '))
 
 store= list(map(int,input().split()))
 
-visited= [0]*N
-result= 0
+d= [0]*100
+d[0]= store[0]
+d[1]= store[1]
+
+for i in range(2, len(store)):
+    d[i]= max(store[i]+d[i-2], d[i-1])
+
+print(d[N-1])
+
+
+
 
