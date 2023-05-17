@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 스크립트</title>
+
+</head>
+<body>
+    <h1>Java Script</h1>
+    <p id="output"></p>
+    <script>
+ 
+        let person= 'Sam'
+        let weight= 87
+        let height= 176.1
+        let BMI= weight/(height/100)**2
+
+        // const out= document.getElementById('output')
+        const out= document.querySelector('#output') //Css 선택자
+        output.style.color= 'blue'
+        output.style.fontSize= '20px'
+        output.innerHTML = person +'의 BMI = ' + BMI.toFixed(2) + '입니다.'
+        //Array
+        const perAr =['Sam','Bob','Andy']
+        const weightArr= [74.6,88.9,68.2]
+        const heightArr= [181.5,174.9,170.3]
+        const BMIArr=[]
+
+        for (let a in weightArr)
+        {
+            BMIArr.push(weightArr[a]/(heightArr[a]/100)**2)
+
+        }
+
+        let text=''
+        for(let i in perArr){
+            text += perArr[i] + ':' + BMIArr[i] +'<br>'
+        }
+        output.innerHTML= text
+
+        //Object
+
+        const perObj = [{name:'Sam', weight:'74.5', height:'181.2'},
+        {name:'Bob', weight:'84.5', height:'181.2'},{name:'Andy', weight:'54.5', height:'181.2'}]
+        BMI= perObj['weight'] / ((perObj['height']/100)**2)
+        for(let e of perObj){
+            BMI= perObj['weight'] / ((perObj['height']/100)**2)
+            
+        }
+        output.innerHTML = perObj['name'] +'의 BMI = ' + BMI.toFixed(2) + '입니다.'
+
+
+
+
+    </script>
+</body>
+</html>
