@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 스크립트</title>
+
+    </head>
+    <body>
+        <h1>Java Script</h1>
+        <p>
+            <img src="./JavaScript/images/animal1.jpg" style="width:300px" id="picture">
+        </p>
+        <button onclick="showImg()">Show</button>
+        <button onclick="hideImg()">Hide</button>
+        <button onclick="changeImg('animal1.jpg')">Picture A</button>
+        <button onclick="changeImg('animal2.jpg')">Picture B</button>
+        <script>
+            function showImg(){
+                document.getElementById('picture').style.display= 'block'
+            }
+            function hideImg(){
+                document.getElementById('picture').style.display= 'None'
+            }
+            function changeImg(A){  
+                document.getElementById('picture').src="./JavaScript/images/"+A+'.jpg'
+
+            }
+        </script>
+
+    </body>
+
+</html>
