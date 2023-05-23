@@ -16,10 +16,19 @@ n개의 정수로 이루어진 임의의 수열이 주어진다. 우리는 이 �
 """
 
 n= int(input())
+arr=list(map(int,input().split()))
 
-arr= list(map(int, input().split()))
+d= [0]*(n)
 
+d[0]= arr[1]
+d[1]= max(arr[1], d[0]+arr[1])
 
+for i in range(2, n):
+    d[i]= max(arr[i]+d[i-1], arr[i])
+
+print(max(d))
+
+ 
 
 
 
