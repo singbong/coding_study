@@ -29,7 +29,30 @@
         <button id="btn6">Append</button>
         
         <script>
-
+            $(document).ready(function() {
+                $('h1').toggle(3000);
+            })
+            $('h1').click(function() {
+                $(this).css('color','red').slideUp(2000).slideDown(2000);
+            })
+            $('p').mouseenter(function() {
+                $(this).css('color','violet');
+            })
+            $('p').on({
+                mouseenter: function() {
+                    // 글자 색을 오렌지 색상으로 변경
+                    $(this).css('color','orange');
+                },
+                mouseleave: function() {
+                    // 글자 크기를 20px로 변경 font-size
+                    $(this).css('font-size','20px');
+                },
+                click: function() {
+                    // slideup down 시키기
+                    $(this).css('color','red').slideUp(2000).slideDown(2000);
+                }
+            })
+            
         </script>
     </body>
 </html>
