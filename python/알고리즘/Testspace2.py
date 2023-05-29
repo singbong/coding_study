@@ -1,11 +1,21 @@
-a= [1,2,3,4,5]
+n= int(input())
 
-a[4]= a[0]+a[1]
+arr=[]
 
-print(a[4])
+for i in range(n):
+    arr.append(list(map(int,input().split())))
 
-a[0]=10
+d= [0]*(n+2)
 
-print(a[4])
+for i in range(n-1, -1, -1):
+    t= arr[i][0]
+    p= arr[i][1]
 
-print(a)
+    if i+t > n:
+        d[i]= d[i+1]
+    else:
+        d[i]= max(d[i+1],d[i+t]+p)
+
+print(d[0])
+
+ 
