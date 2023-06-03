@@ -16,57 +16,39 @@
     <!--네비게이션 bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-lg sticky-top">
         <div class="container">
-          <a href="기말프로젝트.html" class="navbar-brand align-middle">
+            <a href="기말프로젝트.html" class="navbar-brand align-middle">
             <h3 class="m-0">
                 <i class="fas fa-home" alt="Logo" height="36px"></i>
                  신봉균
             </h3>
           </a>
-
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedConetent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span> <!--화면 사이즈가 작아지면 햄버거 모양 아이콘 생성 -->
           </button>
 
           <!--네비게이션바 구성-->
-          <div class="collapse navbar-collapse" id="navbarSupportedConetent">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
                 <li class="nav-item">
-                    <a href="#top" class="nav-link">
-                        Home
-                    </a>
+                    <a href="#top"><button type="button" class="btn btn-dark">Home</button></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#intro" class="nav-link">
-                        Intro
-                    </a>
+                    <a href="#intro"><button type="button" class="btn btn-dark">Intro</button></a>
                 </li>
-                <li class="nav-item">
-                    <a href="#contents" class="nav-link">
-                        contents
+                <li class="nav-item dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Contents
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#sloan" class="nav-link">
-                        Slogan
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#gallery" class="nav-link">
-                        Gallery
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#cta" class="nav-link">
-                        Contact
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#find-us" class="nav-link">
-                        Find Us
-                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#정렬">정렬</a></li>
+                        <li><a class="dropdown-item" href="#이진탐색">이진탐색</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#다이나믹프로그래밍">다이나믹 프로그래밍</a></li>
+                    </ul>
                 </li>
             </ul>
-          </div>
+        </div>
+        
     </nav>
     <!--탑 섹션-->
     <section id="top">
@@ -157,18 +139,17 @@
     <!--컨텐츠 섹션-->
     <section id="contents">
         <div class="section-content">
-            <div class="container contents">
-
-                <!--알고리즘 종류 1-->
+            <!--알고리즘 종류 1-->
+            <div class="container contents" id="정렬">
                 <div class="contents-header text-center mb-5">
-                    <h1 class="display-5">Our amazing contents</h1>
+                    <h1 class="display-5">정렬</h1>
                     <div class="divider"></div>
                     <p class="text-secondary">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, iusto laboriosam magni atque sapiente, mollitia hic debitis reprehenderit eaque vitae quaerat consequatur voluptatem? Exercitationem vitae eaque mollitia doloremque animi et.
                     </p>
                 </div>
 
-                <div id="slick-slide" class="contents-body">
+                <div id="slick-slide-1" class="contents-body">
                     <!--슬라이드 각 요소들 설정-->
                     <div class="contents-col mx-2 my-3">
                         <div class="card">
@@ -266,15 +247,228 @@
                     </div>
                     
                 </div>
-
-                <!--알고리즘 종류 2-->
-
-                <!--알고리즘 종류 3-->
-
-                <!--알고리즘 종류 4-->
-
-                <!--알고리즘 종류 5-->
             </div>
+
+
+            <!--알고리즘 종류 2-->
+            <div class="container contents" id="이진탐색">
+                <div class="contents-header text-center mb-5">
+                    <h1 class="display-5">이진 탐색</h1>
+                    <div class="divider"></div>
+                    <p class="text-secondary">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, iusto laboriosam magni atque sapiente, mollitia hic debitis reprehenderit eaque vitae quaerat consequatur voluptatem? Exercitationem vitae eaque mollitia doloremque animi et.
+                    </p>
+                </div>
+
+                <div id="slick-slide-2" class="contents-body">
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+                <!--알고리즘 종류 3-->
+            <div class="container contents" id="다이나믹프로그래밍">
+                <div class="contents-header text-center mb-5">
+                    <h1 class="display-5">다이나믹 프로그래밍</h1>
+                    <div class="divider" style="border-top: 0.5rem solid black;"></div>
+                    <p class="text-secondary">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, iusto laboriosam magni atque sapiente, mollitia hic debitis reprehenderit eaque vitae quaerat consequatur voluptatem? Exercitationem vitae eaque mollitia doloremque animi et.
+                    </p>
+                </div>
+
+                <div id="slick-slide-3" class="contents-body">
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="#">
+                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">Slide title</h4>
+                                <p class="card-text fw-light mb-4">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                </p>
+                                <a href="#" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
         </div>
     </section>
     
@@ -316,7 +510,7 @@
                         <h4 class="mb-4 text-left">Class Info</h4>
                         <ul>
                             <p class="mb-2">
-                                <i class="fas fa-user"></i> 강좌명: 프런테엔드웹설계
+                                <i class="fas fa-user"></i> 강좌명: 프런트엔드웹설계
                             </p>
                             <p class="mb-2">
                                 <i class="fa-solid fa-computer"></i> 지도 교수: 김정민 교수님

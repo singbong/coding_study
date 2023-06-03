@@ -1,21 +1,27 @@
-n= int(input())
+class Grpaph():
+    def __init__ (self, size):
+        self.SIZE= size
+        self.graph = [[0 for _ in range(size)] for _ in range(size)]
 
-arr=[]
+G1= None
+stack= []
+visitedAry= []
 
-for i in range(n):
-    arr.append(list(map(int,input().split())))
+G1= Grpaph(4)
+G1.graph[0][2]=1; G1.graph[0][3]=1
+G1.graph[1][2]=1
+G1.graph[2][0]=1; G1.graph[2][1]=1; G1.graph[2][3]=1
+G1.graph[3][0]=1; G1.graph[3][2]=1
 
-d= [0]*(n+2)
+print('##G1 무방향 그래프')
+for i in range(4):
+    for j in range(4):
+        print(G1.graph[i][j], end=' ')
+    print()
 
-for i in range(n-1, -1, -1):
-    t= arr[i][0]
-    p= arr[i][1]
+current= 0
+stack.append(current)
+visitedAry.append(current)
 
-    if i+t > n:
-        d[i]= d[i+1]
-    else:
-        d[i]= max(d[i+1],d[i+t]+p)
-
-print(d[0])
-
- 
+while(len(stack)):
+    
