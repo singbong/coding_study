@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>20191624_신봉균 기말프로젝트</title>
     <!--bootstrap, fontawsome, slick 가져오기-->
@@ -25,7 +25,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedConetent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span> <!--화면 사이즈가 작아지면 햄버거 모양 아이콘 생성 -->
           </button>
-
+    
           <!--네비게이션바 구성-->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
@@ -50,49 +50,9 @@
         </div>
         
     </nav>
+
     <!--탑 섹션-->
-    <section id="top">
-        <div class="section-content overlay d-flex justify-content-center align-items-center">
-            <div class="container-xxl"> 
-                <div class="row align-items-center">
-                    <div class="col-md-9 welcome">
-                        <h1 class="welcome-title fw-light">Welcome to <span class="text-warning fw-bold">My 코먹사</span></h1>
-                        <div class="divider"></div>
-                        <div class="row welcome-desc">
-                            <p class="col-sm-10 col-md-12 lead">코드 먹는 사이트에 오신걸 환영합니다!</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 d-none d-md-block letsgo">
-                        <div class="card card-body letsgo-card">
-                            <div class="letsgo my-3">
-                                <h4 class="letsgo-title card-title text-dark mb-3">Easey Contact!</h4>
-                                <p class="card-text text-secondary">궁금한 점이 있다면 당신의 이름과 이메일을 남겨주세요!</p>
-                            </div>
-                            <div class="letsgo-card-form">
-                                <form>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" placeholder="Your name">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="tel" class="form-control" placeholder="Your E-mail">
-                                    </div>
-                                    <div class="form-check mb-3">
-                                        <input type="checkbox" class="form-check-input" id="flexCheckDefault">
-                                        <label for="flexCheckDefault" class="form-check-label text-secondary">
-                                            개인정보제공에 동의하겠습니다.
-                                        </label>
-                                    </div>
-                                    <p class="mb-3">
-                                        <button class="btn btn-primary w-100" type="button">Submit</button>
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="top"></section>
 
     <!--인트로 섹션-->
     <section id="intro">
@@ -145,19 +105,53 @@
                     <h1 class="display-5">정렬</h1>
                     <div class="divider"></div>
                     <p class="text-secondary">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, iusto laboriosam magni atque sapiente, mollitia hic debitis reprehenderit eaque vitae quaerat consequatur voluptatem? Exercitationem vitae eaque mollitia doloremque animi et.
+                        컴퓨터 분야에서 중요시되는 문제 가운데 하나로 어떤 데이터들이 주어졌을 때 이를 정해진 순서대로 나열하는 문제이다. 실제 컴퓨터 분야에서 사용하는 데이터의 <br>경우 숫자의 순서나 어휘의 순서대로 정렬한 다음 사용해야 되는 경우가 거의 항상 발생하는데 이걸 얼마나 효과적으로 해결할 수 있느냐가 정렬 문제의 핵심이다.
                     </p>
                 </div>
-
                 <div id="slick-slide-1" class="contents-body">
                     <!--슬라이드 각 요소들 설정-->
                     <div class="contents-col mx-2 my-3">
                         <div class="card">
+                            <a href="./assets/pages/선택 정렬.html">
+                                <img src="./assets/images/contents/정렬/선택정렬/선택정렬3.png" alt="선택정렬" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">선택 정렬</h4>
+                                <p class="card-text fw-light mb-4">
+                                    선택 정렬은 가장 간단한 정렬 알고리즘 중 하나입니다. 주어진 배열에서 최소값을 선택하여 정렬되지 않은 부분의 첫 번째 요소와 교환하는 방식으로 동작합니다.
+                                    <br>
+                                    <br>
+                                </p>
+                                <a href="./assets/pages/선택 정렬.html" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
+                            <a href="./assets/pages/삽입정렬.html">
+                                <img src="./assets/images/contents/정렬/삽입정렬/삽입정렬1.png" alt="삽입정렬" class="card-img-top">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-tittle">삽입 정렬</h4>
+                                <p class="card-text fw-light mb-4">
+                                    삽입 정렬(Insertion Sort)은 간단하고 기본적인 정렬 알고리즘 중 하나이다. 주어진 배열을 정렬된 부분과 정렬되지 않은 부분으로 나누고, 
+                                    정렬되지 않은 부분에서 하나씩 요소를 선택하여 정렬된 부분에 적절한 위치에 삽입하는 방식
+                                </p>
+                                <a href="./assets/pages/삽입정렬.html" class="btn btn-prima">View more...</a>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!--슬라이드 각 요소들 설정-->
+                    <div class="contents-col mx-2 my-3">
+                        <div class="card">
                             <a href="#">
                                 <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
                             </a>
                             <div class="card-body">
-                                <h4 class="card-tittle">Slide title</h4>
+                                <h4 class="card-tittle">버블 정렬</h4>
                                 <p class="card-text fw-light mb-4">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
                                 </p>
@@ -173,7 +167,7 @@
                                 <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
                             </a>
                             <div class="card-body">
-                                <h4 class="card-tittle">Slide title</h4>
+                                <h4 class="card-tittle">계수 정렬</h4>
                                 <p class="card-text fw-light mb-4">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
                                 </p>
@@ -189,55 +183,7 @@
                                 <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
                             </a>
                             <div class="card-body">
-                                <h4 class="card-tittle">Slide title</h4>
-                                <p class="card-text fw-light mb-4">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
-                                </p>
-                                <a href="#" class="btn btn-prima">View more...</a>
-                            </div> 
-                        </div>
-                    </div>
-
-                    <!--슬라이드 각 요소들 설정-->
-                    <div class="contents-col mx-2 my-3">
-                        <div class="card">
-                            <a href="#">
-                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-tittle">Slide title</h4>
-                                <p class="card-text fw-light mb-4">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
-                                </p>
-                                <a href="#" class="btn btn-prima">View more...</a>
-                            </div> 
-                        </div>
-                    </div>
-
-                    <!--슬라이드 각 요소들 설정-->
-                    <div class="contents-col mx-2 my-3">
-                        <div class="card">
-                            <a href="#">
-                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-tittle">Slide title</h4>
-                                <p class="card-text fw-light mb-4">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
-                                </p>
-                                <a href="#" class="btn btn-prima">View more...</a>
-                            </div> 
-                        </div>
-                    </div>
-
-                    <!--슬라이드 각 요소들 설정-->
-                    <div class="contents-col mx-2 my-3">
-                        <div class="card">
-                            <a href="#">
-                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-tittle">Slide title</h4>
+                                <h4 class="card-tittle">퀵 정렬</h4>
                                 <p class="card-text fw-light mb-4">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
                                 </p>
@@ -479,14 +425,15 @@
                 <div class="row">
                     <div class="col-md-3 mb-4 text-center footer-1">
                         <!--footer부분 왼쪽 하단 큰 로고-->
-                        <img src="./assets/images/img1.jpg" alt="Logo" class="img-fluid footer-logo">
-                        
+                        <a href="#">
+                            <img src="./assets/images/우진이로고.png" alt="Logo" class="img-fluid footer-logo">
+                        </a>
                         <!--footer부분 왼쪽 하단 로고 밑에 sns버튼들-->
                         <div class="sns mt-4">
-                            <a target="_blank" href="https://ko-kr.facebook.com/" class="mx-1 text-decoration-none social">
+                            <a id='sns-1' target="_blank" href="https://ko-kr.facebook.com/" class="mx-1 text-decoration-none social">
                                 <img src="./assets/images/footer/페이스북.png" height="38px" width="38px" alt="Facebook">
                             </a>
-                            <a target="_blank" href="https://www.youtube.com/" class="mx-1 text-decoration-none social">
+                            <a id='sns-1' target="_blank" href="https://www.youtube.com/" class="mx-1 text-decoration-none social">
                                 <img src='./assets/images/footer/유튜브.png' height="38px" width="38px" alt="youtube">
                             </a>
                             <a target="_blank" href="https://twitter.com/?lang=ko" class="mx-1 text-decoration-none social">
@@ -503,115 +450,70 @@
                             </a>
                         </div>
                     </div>
-
-                    <div class="col-md-2 mb-4 text-center footer-1"></div>
-
-                    <div class="col-md-4 mb-4 footer-2">
-                        <h4 class="mb-4 text-left">Class Info</h4>
+    
+                    <div class="col-md-2 mb-4 text-center footer-2"></div>
+    
+                    <div class="col-md-4 mb-4 footer-3">
+                        <h4 class="mb-4">Class Info</h4>
                         <ul>
                             <p class="mb-2">
-                                <i class="fas fa-user"></i> 강좌명: 프런트엔드웹설계
+                                <i class="fas fa-computer"></i> 강좌명: 프런트엔드웹설계
                             </p>
                             <p class="mb-2">
-                                <i class="fa-solid fa-computer"></i> 지도 교수: 김정민 교수님
+                                <i class="fa-solid fa-user"></i> 지도 교수: 김정민 교수님
                             </p>
                             <p class="mb-2">
                                 <i class="fa-regular fa-hashtag"></i> 분 반: 01 분반
                             </p>
                         </ul>
                     </div>
-
-                    <div class="col-md-3 mb-4 footer-3">
-                        <h4 class="mb-4">My Infos</h4>
-                        <div class="info-body">
+    
+                    <div class="col-md-2 mb-4 footer-4">
+                        <h4 class="mb-4">My Info</h4>
+                        <ul>
                             <p class="mb-2">
                                 <i class="fas fa-user"></i> 제작자: 신봉균
                             </p>
                             <p class="mb-2">
-                                <i class="fa-solid fa-computer"></i> 전 공: AI빅데이터 전공
+                                <i class="fa-solid fa-computer"></i> 전 공: AI빅데이터
                             </p>
                             <p class="mb-2">
                                 <i class="fa-regular fa-hashtag"></i> 학 번: 20191624
                             </p>
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--슬로건-->
-    <!-- <section id="slogan">
-        <div class="section content d-flex align-items-center h-10">
-            <div class="container slogan">
-                <div class="row">
-                    <div class="col md-6">
-                        <div class="card card-body slogan-card">
-                            <h1 class="mb-3 mb-3">Our Slogan</h1>
-                            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero eius sequi est voluptatum distinctio iusto non quidem sed, sint aliquam cum laudantium suscipit quibusdam commodi at reiciendis doloremque asperiores necessitatibus.</p>
-                            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!--정보 3열로 나열-->
-    <!-- <section id="features">
-        <div class="section-content mt-5">
-            <div class="container features">
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <div class="card card-body shadow border-0 features-card">
-                            <h4 class="card-title mb-3">
-                                <div class="span fw-bold">1</div>
-                                Feature 1
-                            </h4>
-                            <p class="card-text fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores architecto quasi quia blanditiis dolor laudantium magni et est officiis provident fugit obcaecati nisi totam, expedita neque quo porro numquam dignissimos!</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="card card-body shadow border-0 features-card">
-                            <h4 class="card-title mb-3">
-                                <div class="span fw-bold">1</div>
-                                Feature 2
-                            </h4>
-                            <p class="card-text fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores architecto quasi quia blanditiis dolor laudantium magni et est officiis provident fugit obcaecati nisi totam, expedita neque quo porro numquam dignissimos!</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="card card-body shadow border-0 features-card">
-                            <h4 class="card-title mb-3">
-                                <div class="span fw-bold">1</div>
-                                Feature 3
-                            </h4>
-                            <p class="card-text fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores architecto quasi quia blanditiis dolor laudantium magni et est officiis provident fugit obcaecati nisi totam, expedita neque quo porro numquam dignissimos!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
+    
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.min.js" integrity="sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="assets/js/a.js"></script>
+    <script src="./assets/js/a.js"></script>
+    <script>
+        /*네비게이션 bar 불러오기*/
+
+        fetch('./assets/pages/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+            })
+            .catch(error => {
+            console.error('네비게이션 바를 가져오는 동안 오류가 발생했습니다:', error);
+        });
+
+        /*탑 섹션 불러오기*/
+        fetch('./assets/pages/top.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('top').innerHTML = data;
+            })
+            .catch(error => {
+            console.error('탑 섹션을 가져오는 동안 오류가 발생했습니다:', error);
+        });
+    </script>
 </body>
 </html>

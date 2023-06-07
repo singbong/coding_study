@@ -4,7 +4,7 @@
 }
 /*top section*/
 #top {
-    background-image: url('../images/img1.jpg');
+    background-image: url('../images/top/컴퓨터\ 사진.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -97,11 +97,6 @@
 #intro .intro-first-card .overlay a:hover {
     color: red;
 }
-
-
-
-
-
 /*컨텐츠 섹션*/
 #contents {
     background-color: rgba(96, 125, 139, 0.1);
@@ -131,11 +126,34 @@
     object-position: center;
 }
 
+
 .contents-header {
     padding-top: 100px;
 }
 
+#contents .btn{
+    border: 1px solid black;
+    position: relative;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%,-50%);
+}
+
+#contents .btn:hover{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: green;
+}
+
+
+
 /*footer 섹션*/
+#footer .img-fluid{
+    height: 150px;
+}
+#footer .img-fluid:hover{
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
 
 #footer .sns img {
     border-radius:  0.75rem;
@@ -157,15 +175,5 @@
 #footer li {
     font-size: 1.1rem;
 
-}
-
-#footer .footer-4 i,
-#footer .footer-4 p {
-    font-size: 1.1rem;
-}
-
-#footer .footer-4 .info-body {
-    text-indent: -0.75rem;
-    margin-left: 0.75rem;
 }
 
