@@ -1,35 +1,3 @@
-/*네비게이션 bar 불러오기*/
-
-fetch('../pages/navbar.html')
-    .then(response => response.text())
-    .then(data => {
-    document.getElementById('navbar-container').innerHTML = data;
-    })
-    .catch(error => {
-    console.error('네비게이션 바를 가져오는 동안 오류가 발생했습니다:', error);
-});
-
-/*탑 섹션 불러오기*/
-fetch('../pages/top.html')
-    .then(response => response.text())
-    .then(data => {
-    document.getElementById('top').innerHTML = data;
-    })
-    .catch(error => {
-    console.error('탑 섹션을 가져오는 동안 오류가 발생했습니다:', error);
-});
-
-/*footer 불러오기*/
-fetch('../pages/footer-clone.html')
-    .then(response => response.text())
-    .then(data => {
-    document.getElementById('footer-clone').innerHTML = data;
-    })
-    .catch(error => {
-    console.error('footer을 가져오는 동안 오류가 발생했습니다:', error);
-});
-
-
 /*슬라이드 효과*/
 const slickSlide1 = jQuery('#slick-slide-1')
 

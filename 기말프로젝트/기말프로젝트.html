@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/a.css">
 
 </head>
-  <body>
+<body>
     <!--네비게이션 bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-lg sticky-top">
         <div class="container">
@@ -48,11 +48,51 @@
                 </li>
             </ul>
         </div>
-        
     </nav>
 
     <!--탑 섹션-->
-    <section id="top"></section>
+    <section id="top">
+        <div class="section-content overlay d-flex justify-content-center align-items-center">
+            <div class="container-xxl"> 
+                <div class="row align-items-center">
+                    <div class="col-md-9 welcome">
+                        <h1 class="welcome-title fw-light">Welcome to <span class="text-warning fw-bold">My 코먹사</span></h1>
+                        <div class="divider"></div>
+                        <div class="row welcome-desc">
+                            <p class="col-sm-10 col-md-12 lead">코드 먹는 사이트에 오신걸 환영합니다!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-none d-md-block letsgo">
+                        <div class="card card-body letsgo-card">
+                            <div class="letsgo my-3">
+                                <h4 class="letsgo-title card-title text-dark mb-3">Eeasy Contact!</h4>
+                                <p class="card-text text-secondary">궁금한 점이 있다면 당신의 이름과 이메일을 남겨주세요!</p>
+                            </div>
+                            <div class="letsgo-card-form">
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" placeholder="Your name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="tel" class="form-control" placeholder="Your E-mail">
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input type="checkbox" class="form-check-input" id="flexCheckDefault">
+                                        <label for="flexCheckDefault" class="form-check-label text-secondary">
+                                            개인정보제공에 동의하겠습니다.
+                                        </label>
+                                    </div>
+                                    <p class="mb-3">
+                                        <button class="btn btn-primary w-100" type="button">Submit</button>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!--인트로 섹션-->
     <section id="intro">
@@ -147,15 +187,16 @@
                     <!--슬라이드 각 요소들 설정-->
                     <div class="contents-col mx-2 my-3">
                         <div class="card">
-                            <a href="#">
-                                <img src="./assets/images/img1.jpg" alt="" class="card-img-top">
+                            <a href="./assets/pages/버블정렬.html">
+                                <img src="./assets/images/contents/정렬/버블정렬/8.png" alt="" class="card-img-top">
                             </a>
                             <div class="card-body">
                                 <h4 class="card-tittle">버블 정렬</h4>
                                 <p class="card-text fw-light mb-4">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni recusandae, nesciunt dolorum sunt itaque dolor deserunt qui doloremque, adipisci optio aut cum autem numquam beatae officiis laborum minima explicabo velit!
+                                    거품 정렬은 큰 그림에서 보았을 때 뒤에서 부터 앞으로 정렬을 해나가는 구조를 가지고 있습니다. 
+                                    큰 값을 계속해서 뒤로 보내는 모습이 마치 방울이 이동하는 것과 같이 보여서 거품 정렬이라는 이름이 붙어졌습니다.
                                 </p>
-                                <a href="#" class="btn btn-prima">View more...</a>
+                                <a href="./assets/pages/버블정렬.html" class="btn btn-prima">View more...</a>
                             </div> 
                         </div>
                     </div>
@@ -493,27 +534,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.min.js" integrity="sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/a.js"></script>
-    <script>
-        /*네비게이션 bar 불러오기*/
-
-        fetch('./assets/pages/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-            document.getElementById('navbar-container').innerHTML = data;
-            })
-            .catch(error => {
-            console.error('네비게이션 바를 가져오는 동안 오류가 발생했습니다:', error);
-        });
-
-        /*탑 섹션 불러오기*/
-        fetch('./assets/pages/top.html')
-            .then(response => response.text())
-            .then(data => {
-            document.getElementById('top').innerHTML = data;
-            })
-            .catch(error => {
-            console.error('탑 섹션을 가져오는 동안 오류가 발생했습니다:', error);
-        });
-    </script>
 </body>
 </html>
