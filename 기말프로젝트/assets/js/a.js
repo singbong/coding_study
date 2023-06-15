@@ -7,7 +7,7 @@ if(slickSlide1) {
         arrows: true,
         slidesToShow: 3,
         slideToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 3000,
         responsive: [
             {
