@@ -30,22 +30,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
             <li class="nav-item">
-                <a href="#top"><button type="button" class="btn btn-dark">Home</button></a>
-            </li>
-            <li class="nav-item">
-                <a href="#intro"><button type="button" class="btn btn-dark">Intro</button></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="btn btn-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Contents
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#정렬">정렬</a></li>
-                    <li><a class="dropdown-item" href="#이진탐색">이진탐색</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#다이나믹프로그래밍">다이나믹 프로그래밍</a></li>
-                </ul>
-            </li>
+                <a href="#top"><button type="button" class="btn btn-dark"><i class="fa-solid fa-arrow-up fa-2xl"></i></button></a>
+            </li>   
         </ul>
     </div>
   </nav>
@@ -100,7 +86,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="title mt-5">
-            <p style="color: black">알고리즘</p> 
+            <p style="color: black">정렬</p> 
             <h1 style="text-align: left;"><b>선택 정렬</b></h1>
             <p style="color: darkgray;">학교: 대진대학교 &nbsp; 전공: AI 빅데이터 &nbsp; 학번: 20191624 &nbsp; 이름: 신봉균 &nbsp; </p>
           </div>
@@ -145,12 +131,106 @@
         </div>
       </div>
     </div>
-
-
-
   </section>
 
-  
+  <!--슬라이드-->
+  <section id='contents' style="background-color: white;">
+        <div class="container contents" id="정렬">
+          <div class="contents-header text-center mb-5">
+              <h1 class="display-5"></h1>
+              <p class="text-secondary"></p>
+          </div>
+          <div id="slick-slide-1" class="contents-body">
+              <!--슬라이드 각 요소들 설정-->
+              <div class="contents-col mx-2 my-3">
+                  <div class="card">
+                      <a href="./선택 정렬.html">
+                          <img src="../images/contents/정렬/선택정렬/gif.gif" alt="선택정렬" class="card-img-top">
+                      </a>
+                      <div class="card-body">
+                          <h4 class="card-tittle">선택 정렬</h4>
+                          <p class="card-text fw-light mb-4">
+                              선택 정렬은 가장 간단한 정렬 알고리즘 중 하나입니다. 주어진 배열에서 최소값을 선택하여 정렬되지 않은 부분의 첫 번째 요소와 교환하는 방식으로 동작합니다.
+                              <br>
+                              <br>
+                          </p>
+                          <a href="./선택 정렬.html" class="btn btn-prima">View more...</a>
+                      </div> 
+                  </div>
+              </div>
+
+              <!--슬라이드 각 요소들 설정-->
+              <div class="contents-col mx-2 my-3">
+                  <div class="card">
+                      <a href="./삽입정렬.html">
+                          <img src="../images/contents/정렬/삽입정렬/gif.gif" alt="삽입정렬" class="card-img-top">
+                      </a>
+                      <div class="card-body">
+                          <h4 class="card-tittle">삽입 정렬</h4>
+                          <p class="card-text fw-light mb-4">
+                              삽입 정렬(Insertion Sort)은 간단하고 기본적인 정렬 알고리즘 중 하나이다. 주어진 배열을 정렬된 부분과 정렬되지 않은 부분으로 나누고, 
+                              정렬되지 않은 부분에서 하나씩 요소를 선택하여 정렬된 부분에 적절한 위치에 삽입하는 방식
+                          </p>
+                          <a href="./삽입정렬.html" class="btn btn-prima">View more...</a>
+                      </div> 
+                  </div>
+              </div>
+
+              <!--슬라이드 각 요소들 설정-->
+              <div class="contents-col mx-2 my-3">
+                  <div class="card">
+                      <a href="./버블정렬.html">
+                          <img src="../images/contents/정렬/버블정렬/gif.gif" alt="버블정렬" class="card-img-top">
+                      </a>
+                      <div class="card-body">
+                          <h4 class="card-tittle">버블 정렬</h4>
+                          <p class="card-text fw-light mb-4">
+                              거품 정렬은 큰 그림에서 보았을 때 뒤에서 부터 앞으로 정렬을 해나가는 구조를 가지고 있습니다. 
+                              큰 값을 계속해서 뒤로 보내는 모습이 마치 방울이 이동하는 것과 같이 보여서 거품 정렬이라는 이름이 붙어졌습니다.
+                          </p>
+                          <a href="./버블정렬.html" class="btn btn-prima">View more...</a>
+                      </div> 
+                  </div>
+              </div>
+
+              <!--슬라이드 각 요소들 설정-->
+              <div class="contents-col mx-2 my-3">
+                  <div class="card">
+                      <a href="./계수정렬.html">
+                          <img src="../images/contents/정렬/계수정렬/1.gif" alt="계수정렬" class="card-img-top">
+                      </a>
+                      <div class="card-body">
+                          <h4 class="card-tittle">계수 정렬</h4>
+                          <p class="card-text fw-light mb-4">
+                              계수 정렬은 특정한 조건이 부합될 때만 사용할 수 있지만 데이터 수가 많더라도 중복된 값이 많이 분포돼있는 배열을 정렬할 때 효과적이고 빠른 정렬 알고리즘이다. 최대, 최소 값 차이가 100만 이하일 경우 효과적이다. 카운팅 정렬이라고 하기도 한다.
+                          </p>
+                          <a href="./계수정렬.html" class="btn btn-prima">View more...</a>
+                      </div> 
+                  </div>
+              </div>
+
+              <!--슬라이드 각 요소들 설정-->
+              <div class="contents-col mx-2 my-3">
+                  <div class="card">
+                      <a href="./퀵정렬.html">
+                          <img src="../images/contents/정렬/퀵정렬/1.gif" alt="" class="card-img-top">
+                      </a>
+                      <div class="card-body">
+                          <h4 class="card-tittle">퀵 정렬</h4>
+                          <p class="card-text fw-light mb-4">
+                              퀵 정렬(Quick Sort)은 분할 정복(Divide and Conquer) 알고리즘 중 하나로, 평균적으로 매우 빠른 정렬 알고리즘으로 알려져 있습니다. 퀵 정렬은 다음과 같은 과정으로 이루어집니다.
+                              <br>
+                              <br>
+                          </p>
+                          <a href="./퀵정렬.html" class="btn btn-prima">View more...</a>
+                      </div> 
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <br><br><br><br><br><br><br>
+  </section>
 
   
   <!--footer 부분-->

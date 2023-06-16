@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>삽입 정렬</title>
+  <title>이진탐색재귀구현</title>
   <!--bootstrap, fontawsome, slick 가져오기-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../css/a.css">
 </head>
 <body>
+  
   <!--네비게이션 bar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-lg sticky-top">
     <div class="container">
@@ -78,174 +79,111 @@
         </div>
     </div>
   </section>
+
 <!--선택 정렬 설명 내용-->
-  <section id="insertion-sort" class="py-3 shadow-lg">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="title mt-5">
-            <p style="color: black">정렬</p> 
-            <h1 style="text-align: left;"><b>삽입 정렬</b></h1>
-            <p style="color: darkgray;">학교: 대진대학교 &nbsp; 전공: AI 빅데이터 &nbsp; 학번: 20191624 &nbsp; 이름: 신봉균 &nbsp; </p>
-          </div>
-          <div class="description mt-5">
-            <p>
-                삽입 정렬은 이미 정렬 된 자료 리스트에서 새로운 자료를 적절한 위치에 삽입하는 동작을 반복하여 정렬하는 방법이다. 비교적 적은 비교와 많은 교환이 일어난다
-            </p>
-            <br>
-            <br>
-            <p>
-                <img src="../images/contents/정렬/삽입정렬/gif.gif" class="col-10">
-            </p>
-            <br>
-            <br>
+  <section id="binary-search" class="py-3 shadow-lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title mt-5">
+                        <p style="color: black">이진탐색</p> 
+                        <h1 style="text-align: left;"><b>이진탐색 재귀구현</b></h1>
+                        <p style="color: darkgray;">학교: 대진대학교 &nbsp; 전공: AI 빅데이터 &nbsp; 학번: 20191624 &nbsp; 이름: 신봉균 &nbsp; </p>
+                    </div>
+                    <div class="description mt-5">
+                        <h2 style="background-color: rgba(255, 0, 0, 0.3); width: 140px;">이진 탐색</h2>
+                        <br><br>
+                        <h2>이진탐색의 재귀함수로의 구현</h2>
+                        기존에 구현 하였던 이진탐색 일반구현을 응용하여 재귀적으로 코드를 짜보았다.
+                        <br><br>
 
-            <p>
-                <img src="../images/contents/정렬/삽입정렬/삽입정렬1.png" class="col-11" style="max-width: 360px;">
-            </p>
-            <p>
-              <img src="../images/contents/정렬/삽입정렬/삽입정렬2.png" class="col-11" style="max-width: 360px;">
-            </p>
-            <p>
-                <img src="../images/contents/정렬/삽입정렬/삽입정렬3.png" class="col-11" style="max-width: 360px;">
-            </p>
-            <br>
-            <p>
-                <b>삽입정렬을 파이썬 코드로 구현해보았다</b>
-            </p>
-            <br>
-            
-            <p>
-                <img src="../images/contents/정렬/삽입정렬/삽입정렬4.png" class="col-11" style="max-width: 600px; min-width: 360;">
-            </p>
-            <br>
+                        <p>
+                            <img src="../images/contents/이진탐색/이진탐색재귀구현/2.png" class="col-10">
+                        </p>
 
-            <p>삽입 정렬은 다음과 같은 단계로 이루어집니다:</p>
-            <ol>
-              <li>정렬되지 않은 부분에서 첫 번째 요소를 선택합니다..</li>
-              <li>선택한 요소를 정렬된 부분에서 적절한 위치에 삽입합니다. 정렬된 부분의 요소들과 비교하며, 삽입할 위치를 찾을 때까지 요소들을 오른쪽으로 한 칸씩 이동합니다.</li>
-              <li>정렬되지 않은 부분에서 다음 요소를 선택하고, 이를 정렬된 부분에 삽입합니다.</li>
-              <li>위의 과정을 정렬되지 않은 부분이 모두 정렬될 때까지 반복합니다.</li>
-            </ol>
-            <p>
-                삽입 정렬은 선택 정렬과 마찬가지로 평균 시간 복잡도가 O(n^2)로 비교적 느린 알고리즘입니다. 하지만 배열의 크기가 작을 때나 배열이 이미 거의 정렬된 경우에는 효율적으로 동작할 수 있습니다.
-            </p>
-            <br>
-
-            <p>
-              결과 화면:
-            </p>
-            <p>
-                <img src="../images/contents/정렬/삽입정렬/삽입정렬5.png" class="col-11" style="max-width: 600px; min-width: 360;">
-            </p>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--슬라이드-->
-  <section id='contents' style="background-color: white;">
-        <div class="container contents" id="정렬">
-            <div class="contents-header text-center mb-5">
-                <h1 class="display-5"></h1>
-                <p class="text-secondary"></p>
-            </div>
-            <div id="slick-slide-1" class="contents-body">
-                <!--슬라이드 각 요소들 설정-->
-                <div class="contents-col mx-2 my-3">
-                    <div class="card">
-                        <a href="./선택 정렬.html">
-                            <img src="../images/contents/정렬/선택정렬/gif.gif" alt="선택정렬" class="card-img-top">
-                        </a>
-                        <div class="card-body">
-                            <h4 class="card-tittle">선택 정렬</h4>
-                            <p class="card-text fw-light mb-4">
-                                선택 정렬은 가장 간단한 정렬 알고리즘 중 하나입니다. 주어진 배열에서 최소값을 선택하여 정렬되지 않은 부분의 첫 번째 요소와 교환하는 방식으로 동작합니다.
-                                <br>
-                                <br>
-                            </p>
-                            <a href="./선택 정렬.html" class="btn btn-prima">View more...</a>
-                        </div> 
+                        <br>
+                        <br>
                     </div>
                 </div>
-
-                <!--슬라이드 각 요소들 설정-->
-                <div class="contents-col mx-2 my-3">
-                    <div class="card">
-                        <a href="./삽입정렬.html">
-                            <img src="../images/contents/정렬/삽입정렬/gif.gif" alt="삽입정렬" class="card-img-top">
-                        </a>
-                        <div class="card-body">
-                            <h4 class="card-tittle">삽입 정렬</h4>
-                            <p class="card-text fw-light mb-4">
-                                삽입 정렬(Insertion Sort)은 간단하고 기본적인 정렬 알고리즘 중 하나이다. 주어진 배열을 정렬된 부분과 정렬되지 않은 부분으로 나누고, 
-                                정렬되지 않은 부분에서 하나씩 요소를 선택하여 정렬된 부분에 적절한 위치에 삽입하는 방식
-                            </p>
-                            <a href="./삽입정렬.html" class="btn btn-prima">View more...</a>
-                        </div> 
-                    </div>
-                </div>
-
-                <!--슬라이드 각 요소들 설정-->
-                <div class="contents-col mx-2 my-3">
-                    <div class="card">
-                        <a href="./버블정렬.html">
-                            <img src="../images/contents/정렬/버블정렬/gif.gif" alt="버블정렬" class="card-img-top">
-                        </a>
-                        <div class="card-body">
-                            <h4 class="card-tittle">버블 정렬</h4>
-                            <p class="card-text fw-light mb-4">
-                                거품 정렬은 큰 그림에서 보았을 때 뒤에서 부터 앞으로 정렬을 해나가는 구조를 가지고 있습니다. 
-                                큰 값을 계속해서 뒤로 보내는 모습이 마치 방울이 이동하는 것과 같이 보여서 거품 정렬이라는 이름이 붙어졌습니다.
-                            </p>
-                            <a href="./버블정렬.html" class="btn btn-prima">View more...</a>
-                        </div> 
-                    </div>
-                </div>
-
-                <!--슬라이드 각 요소들 설정-->
-                <div class="contents-col mx-2 my-3">
-                    <div class="card">
-                        <a href="./계수정렬.html">
-                            <img src="../images/contents/정렬/계수정렬/1.gif" alt="계수정렬" class="card-img-top">
-                        </a>
-                        <div class="card-body">
-                            <h4 class="card-tittle">계수 정렬</h4>
-                            <p class="card-text fw-light mb-4">
-                                계수 정렬은 특정한 조건이 부합될 때만 사용할 수 있지만 데이터 수가 많더라도 중복된 값이 많이 분포돼있는 배열을 정렬할 때 효과적이고 빠른 정렬 알고리즘이다. 최대, 최소 값 차이가 100만 이하일 경우 효과적이다. 카운팅 정렬이라고 하기도 한다.
-                            </p>
-                            <a href="./계수정렬.html" class="btn btn-prima">View more...</a>
-                        </div> 
-                    </div>
-                </div>
-
-                <!--슬라이드 각 요소들 설정-->
-                <div class="contents-col mx-2 my-3">
-                    <div class="card">
-                        <a href="./퀵정렬.html">
-                            <img src="../images/contents/정렬/퀵정렬/1.gif" alt="" class="card-img-top">
-                        </a>
-                        <div class="card-body">
-                            <h4 class="card-tittle">퀵 정렬</h4>
-                            <p class="card-text fw-light mb-4">
-                                퀵 정렬(Quick Sort)은 분할 정복(Divide and Conquer) 알고리즘 중 하나로, 평균적으로 매우 빠른 정렬 알고리즘으로 알려져 있습니다. 퀵 정렬은 다음과 같은 과정으로 이루어집니다.
-                                <br>
-                                <br>
-                            </p>
-                            <a href="./퀵정렬.html" class="btn btn-prima">View more...</a>
-                        </div> 
-                    </div>
-                </div>
-                
             </div>
         </div>
-        <br><br><br><br><br><br><br>
     </section>
 
-  
 
+<!--슬라이드-->
+    <section id="contents" style="background-color: white;">
+        <!--알고리즘 종류 2-->
+        <div class="container contents" id="이진탐색">
+            <div id="slick-slide-2" class="contents-body">
+                <!--슬라이드 각 요소들 설정-->
+                <div class="contents-col mx-2 my-3">
+                    <div class="card">
+                        <a href="./떡볶이 문제.html">
+                            <img src="../images/contents/이진탐색/떡볶이문제/4.png" alt="" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-tittle">떡볶이 문제</h4>
+                            <p class="card-text fw-light mb-4">
+                                이진 탐색을 이용하여 '이것이 취업을 위한 코딩테스트' 책의 떡볶이 떡 만들기 문제 풀어보자.<br><br><br><br>
+                            </p>
+                            <a href="./떡볶이 문제.html" class="btn btn-prima">View more...</a>
+                        </div> 
+                    </div>
+                </div>
+
+                <!--슬라이드 각 요소들 설정-->
+                <div class="contents-col mx-2 my-3">
+                    <div class="card">
+                        <a href="./이진탐색일반구현.html">
+                            <img src="../images/contents/이진탐색/이진 탐색 일반 구현/1.png" alt="" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-tittle">이진탐색 일반구현</h4>
+                            <p class="card-text fw-light mb-4">
+                                이진 탐색(Binary Search)은 정렬된 배열 또는 리스트에서 특정한 값을 찾는 알고리즘입니다. 이진 탐색은 탐색 범위를 반씩 줄여가면서 탐색하는 방법으로, 평균적으로 매우 효율적으로 동작합니다.    
+                            <br><br>
+                            </p>
+                            <a href="./이진탐색일반구현.html" class="btn btn-prima">View more...</a>
+                        </div> 
+                    </div>
+                </div>
+
+                <!--슬라이드 각 요소들 설정-->
+                <div class="contents-col mx-2 my-3">
+                    <div class="card">
+                        <a href="./이진탐색재귀구현.html">
+                            <img src="../images/contents/이진탐색/이진탐색재귀구현/1.png" alt="" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-tittle">이진탐색 재귀구현</h4>
+                            <p class="card-text fw-light mb-4">
+                                기존 이진탐색 일반구현을 응용하여 재귀함수를 이용하여 이진탐색을 구현한다.
+                                <br><br><br><br>  
+                            </p>
+                            <a href="./이진탐색재귀구현.html" class="btn btn-prima">View more...</a>
+                        </div> 
+                    </div>
+                </div>
+
+                <!--슬라이드 각 요소들 설정-->
+                <div class="contents-col mx-2 my-3">
+                    <div class="card">
+                        <a href="./biset 라이브러리.html">
+                            <img src="../images/contents/이진탐색/bisect 라이브러리/1.png" alt="" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-tittle">bisect 라이브러리</h4>
+                            <p class="card-text fw-light mb-4">
+                                파이썬에서는 이진 탐색을 쉽게 구현할 수 있도록 bisect 라이브러리를 제공한다. '정렬된 배열'에서 특정한 원소를 찾아야 할 때 매우 효과적으로 사용된다.    
+                                <br><br><br>
+                            </p>
+                            <a href="./biset 라이브러리.html" class="btn btn-prima">View more...</a>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
   
   <!--footer 부분-->
   <footer id="footer">
@@ -315,7 +253,6 @@
         </div>
     </div>
   </footer>
-
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
