@@ -103,11 +103,11 @@ const algorithmData = [
     { name: "떡볶이 문제", page: "./assets/pages/떡볶이 문제.html" },
     { name: "버블 정렬", page: "./assets/pages/버블정렬.html" },
     { name: "삽입 정렬", page: "./assets/pages/삽입정렬.html" },
-    { name: "선택 정렬", page: "./assets/pages/선택정렬.html" },
+    { name: "선택 정렬", page: "./assets/pages/선택 정렬.html" },
     { name: "이진탐색 일반구현", page: "./assets/pages/이진탐색일반구현.html" },
     { name: "이진탐색 재귀구현", page: "./assets/pages/이진탐색재귀구현.html" },
     { name: "퀵 정렬", page: "./assets/pages/퀵정렬.html" },
-    { name: "평벙한 배낭", page: "./assets/pages/평범한 배낭.html" },
+    { name: "평범한 배낭", page: "./assets/pages/평범한 배낭.html" },
     { name: "포도주 시식", page: "./assets/pages/포도주 시식.html" },
     { name: "피보나치수 2", page: "./assets/pages/피보나치수 2.html" },
     { name: "bisect 라이브러리", page: "./assets/pages/bisect 라이브러리.html" }
@@ -154,7 +154,7 @@ function displaySearchResults(results) {
         // 클릭 이벤트 리스너 추가
         algorithmCard.addEventListener("click", () => {
           // 새 창에서 링크 열기
-          window.open(result.page);
+          window.location.href = result.page;
         });
 
         searchResults.appendChild(algorithmCard);
