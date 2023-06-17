@@ -81,6 +81,24 @@ if(slickSlide3) {
 }
 
 
+/*submit 버튼 */
+function submitForm() {
+    const checkbox = document.getElementById("flexCheckDefault");
+    
+    if (checkbox.checked) {
+        // 체크박스가 체크된 경우
+        alert("제출 완료! 메시지가 제출되었습니다.");
+    } else {
+        // 체크박스가 체크되지 않은 경우
+        alert("개인정보 제공에 동의해주세요.");
+    }
+}
+
+
+
+
+/* 검색 기능 구현*/
+
 const algorithmData = [
     { name: "1,2,3 더하기", page: "./1,2,3 더하기.html" },
     { name: "1로 만들기", page: "./1로 만들기.html" },
