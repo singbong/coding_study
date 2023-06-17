@@ -33,6 +33,45 @@
     color: #fff;
 
 }
+#searchbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+#searchInput {
+    width: 260px; /* 적절한 너비 조정 */
+    height: 40px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+#searchResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 10px;
+    display: none;
+    border-radius: 20px;
+}
+.searchcard {
+    height: 32px; /* 원하는 높이로 설정 */
+}
+
+.searchcard:hover {
+    color: red; /* 원하는 색상으로 변경 */
+    cursor: pointer;
+  }
+  
 
 @media screen and (max-width: 767px) {
     #top .welcome{

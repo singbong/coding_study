@@ -82,21 +82,21 @@ if(slickSlide3) {
 
 
 const algorithmData = [
-    { name: "1,2,3 더하기", page: "./assets/pages/1,2,3 더하기.html" },
-    { name: "1로 만들기", page: "./assets/pages/1로 만들기.html" },
-    { name: "계단오르기", page: "./assets/pages/계단오르기.html" },
-    { name: "계수 정렬", page: "./assets/pages/계수정렬.html" },
-    { name: "떡볶이 문제", page: "./assets/pages/떡볶이 문제.html" },
-    { name: "버블 정렬", page: "./assets/pages/버블정렬.html" },
-    { name: "삽입 정렬", page: "./assets/pages/삽입정렬.html" },
-    { name: "선택 정렬", page: "./assets/pages/선택정렬.html" },
-    { name: "이진탐색 일반구현", page: "./assets/pages/이진탐색일반구현.html" },
-    { name: "이진탐색 재귀구현", page: "./assets/pages/이진탐색재귀구현.html" },
-    { name: "퀵 정렬", page: "./assets/pages/퀵정렬.html" },
-    { name: "평벙한 배낭", page: "./assets/pages/평범한 배낭.html" },
-    { name: "포도주 시식", page: "./assets/pages/포도주 시식.html" },
-    { name: "피보나치수 2", page: "./assets/pages/피보나치수 2.html" },
-    { name: "bisect 라이브러리", page: "./assets/pages/bisect 라이브러리.html" }
+    { name: "1,2,3 더하기", page: "./1,2,3 더하기.html" },
+    { name: "1로 만들기", page: "./1로 만들기.html" },
+    { name: "계단오르기", page: "./계단오르기.html" },
+    { name: "계수 정렬", page: "./계수정렬.html" },
+    { name: "떡볶이 문제", page: "./떡볶이 문제.html" },
+    { name: "버블 정렬", page: "./버블정렬.html" },
+    { name: "삽입 정렬", page: "./삽입정렬.html" },
+    { name: "선택 정렬", page: "./선택정렬.html" },
+    { name: "이진탐색 일반구현", page: "./이진탐색일반구현.html" },
+    { name: "이진탐색 재귀구현", page: "./이진탐색재귀구현.html" },
+    { name: "퀵 정렬", page: "./퀵정렬.html" },
+    { name: "평벙한 배낭", page: "./평범한 배낭.html" },
+    { name: "포도주 시식", page: "./포도주 시식.html" },
+    { name: "피보나치수 2", page: "./피보나치수 2.html" },
+    { name: "bisect 라이브러리", page: "./pages/bisect 라이브러리.html" }
 ];
 
   // 검색 인터페이스 요소 가져오기
