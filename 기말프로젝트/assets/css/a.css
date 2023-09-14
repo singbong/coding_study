@@ -63,14 +63,41 @@
     display: none;
     border-radius: 20px;
 }
-.searchcard {
-    height: 32px; /* 원하는 높이로 설정 */
-}
 
 .searchcard:hover {
     color: red; /* 원하는 색상으로 변경 */
     cursor: pointer;
-  }
+}
+
+
+/*검색창*/
+
+.searchcard {
+    height: 32px; /* 원하는 높이로 설정 */
+    padding: 8px 16px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+  
+.searchcard:last-child {
+    border-bottom: none;
+}
+  
+.searchcard:hover {
+    background-color: #f7f7f7;
+}
+  
+.searchcard h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+  
+.searchcard p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #666;
+}
   
 
 @media screen and (max-width: 767px) {
